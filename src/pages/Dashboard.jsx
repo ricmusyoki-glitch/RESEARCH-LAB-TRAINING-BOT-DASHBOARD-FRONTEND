@@ -1,6 +1,7 @@
 import MainLayout from "../layouts/MainLayout";
 import Sidebar from "../components/SideBar";
 import StatsCard from "../components/StatsCard";
+import Navbar from "../components/Navbar"; 
 
 function Dashboard () {
   return (
@@ -10,9 +11,7 @@ function Dashboard () {
 
       <div className="flex-1 bg-[#0B1120] p-6">
 
-        <h1 className="text-3xl font-bold text-white mb-6">
-          Dashboard
-        </h1>
+       <Navbar />
 
         {/* Stats Grid */}
                 <div className="grid grid-cols-4 gap-5">
