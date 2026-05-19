@@ -4,6 +4,8 @@ import StatsCard from "../components/StatsCard";
 import Navbar from "../components/Navbar"; 
 import PerformanceChart from "../components/PerformanceChart";
 import ActivityPanel from "../components/ActivityPanel";
+import TradesTable from "../components/TradesTable";
+import AIInsightsPanel from "../components/AIInsightsPanel";
 
 function Dashboard () {
   return (
@@ -61,6 +63,20 @@ function Dashboard () {
                        </div>
 
                 </div>
+
+                 <div className="grid grid-cols-1 xl:grid-cols-3 gap-5 mt-2">
+
+                      {/* Trades Table */}
+                       <div className="xl:col-span-2">
+                        <TradesTable />
+                        </div>
+
+                      {/* AI Insights */}
+                       <div>
+                         <AIInsightsPanel />
+                       </div>
+
+                  </div>
 
       </div> 
 

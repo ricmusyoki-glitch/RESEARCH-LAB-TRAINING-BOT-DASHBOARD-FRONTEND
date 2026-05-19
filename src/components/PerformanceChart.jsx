@@ -8,17 +8,18 @@ import {
 } from "recharts";
 
 const data = [
-  { month: "Jan", balance: 4000 },
-  { month: "Feb", balance: 3000 },
-  { month: "Mar", balance: 5000 },
-  { month: "Apr", balance: 4780 },
-  { month: "May", balance: 5890 },
-  { month: "Jun", balance: 6390 },
+  { day: "Mon", balance: 10200 },
+  { day: "Tue", balance: 10450 },
+  { day: "Wed", balance: 10120 },
+  { day: "Thu", balance: 10800 },
+  { day: "Fri", balance: 11250 },
+  { day: "Sat", balance: 11050 },
+  { day: "Sun", balance: 11500 },
 ];
 
 function PerformanceChart() {
   return (
-    <div className="bg-[#111827] p-5 rounded-2xl border border-gray-800 h-[400px]">
+    <div className="bg-[#111827] p-5 rounded-2xl border border-gray-800 h-100">
 
       <h2 className="text-white text-xl font-bold mb-6">
         Portfolio Performance
@@ -28,7 +29,7 @@ function PerformanceChart() {
 
         <LineChart data={data}>
 
-          <XAxis dataKey="month" stroke="#9CA3AF" />
+          <XAxis dataKey="day" stroke="#9CA3AF" />
 
           <YAxis stroke="#9CA3AF" />
 
