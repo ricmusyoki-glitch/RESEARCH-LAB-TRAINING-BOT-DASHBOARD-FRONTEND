@@ -7,8 +7,11 @@ import {
   FaCog,
   FaShieldAlt,
   FaFileAlt,
-} 
-from "react-icons/fa";
+  FaBrain,
+  FaVial,
+} from "react-icons/fa";
+
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
@@ -16,59 +19,120 @@ function Sidebar() {
 
       {/* Logo Section */}
       <div className="mb-10">
+
         <h1 className="text-2xl font-bold text-white">
           Rick Research Lab
         </h1>
 
         <p className="text-gray-400 text-sm mt-1">
-          Trading Intelligently
+          Trading Intelligence
         </p>
+
       </div>
 
       {/* Navigation */}
-      <ul className="space-y-3">
+      <div className="flex flex-col gap-2">
 
-        <li className="flex items-center gap-3 bg-blue-600 p-3 rounded-xl cursor-pointer">
+        {/* Dashboard */}
+        <Link
+          to="/"
+          className="flex items-center gap-3 bg-blue-600 p-3 rounded-xl text-white"
+        >
           <FaChartPie />
           <span>Dashboard</span>
-        </li>
+        </Link>
 
-        <li className="flex items-center gap-3 text-gray-400 hover:text-white cursor-pointer p-3">
+        {/* Live Signals */}
+        <Link
+          to="/signals"
+          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+        >
           <FaSignal />
           <span>Live Signals</span>
-        </li>
+        </Link>
 
-        <li className="flex items-center gap-3 text-gray-400 hover:text-white cursor-pointer p-3">
+        {/* Paper Trading */}
+        <Link
+          to="/paper-trading"
+          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+        >
           <FaChartLine />
           <span>Paper Trading</span>
-        </li>
+        </Link>
 
-        <li className="flex items-center gap-3 text-gray-400 hover:text-white cursor-pointer p-3">
+        {/* Strategies */}
+        <Link
+          to="/strategies"
+          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+        >
+          <FaBrain />
+          <span>Strategies</span>
+        </Link>
+
+        {/* Backtesting */}
+        <Link
+          to="/backtesting"
+          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+        >
+          <FaVial />
+          <span>Backtesting</span>
+        </Link>
+
+        {/* Research Lab */}
+        <Link
+          to="/research"
+          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+        >
           <FaFlask />
           <span>Research Lab</span>
-        </li>
+        </Link>
 
-        <li className="flex items-center gap-3 text-gray-400 hover:text-white cursor-pointer p-3">
-          <FaRobot />
-          <span>AI Insights</span>
-        </li>
+        {/* Analytics */}
+        <Link
+          to="/analytics"
+          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+        >
+          <FaChartPie />
+          <span>Analytics</span>
+        </Link>
 
-        <li className="flex items-center gap-3 text-gray-400 hover:text-white cursor-pointer p-3">
+        {/* Risk Dashboard */}
+        <Link
+          to="/risk-dashboard"
+          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+        >
           <FaShieldAlt />
           <span>Risk Dashboard</span>
-        </li>
+        </Link>
 
-        <li className="flex items-center gap-3 text-gray-400 hover:text-white cursor-pointer p-3">
+        {/* Reports */}
+        <Link
+          to="/reports"
+          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+        >
           <FaFileAlt />
           <span>Reports</span>
-        </li>
+        </Link>
 
-        <li className="flex items-center gap-3 text-gray-400 hover:text-white cursor-pointer p-3">
+        {/* AI Insights */}
+        <Link
+          to="/ai-insights"
+          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+        >
+          <FaRobot />
+          <span>AI Insights</span>
+        </Link>
+
+        {/* Settings */}
+        <Link
+          to="/settings"
+          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+        >
           <FaCog />
           <span>Settings</span>
-        </li>
+        </Link>
 
-      </ul>
+      </div>
     </div>
   );
 }
