@@ -11,13 +11,23 @@ import {
   FaVial,
 } from "react-icons/fa";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Sidebar() {
+
+  const location = useLocation();
+
+  const navLinkClass = (path) =>
+    `flex items-center gap-3 p-3 rounded-xl transition ${
+      location.pathname === path
+        ? "bg-blue-600 text-white"
+        : "text-gray-400 hover:text-white hover:bg-[#111827]"
+    }`;
+
   return (
     <div className="w-64 min-h-screen bg-[#050816] border-r border-gray-800 p-5">
 
-      {/* Logo Section */}
+      {/* Logo */}
       <div className="mb-10">
 
         <h1 className="text-2xl font-bold text-white">
@@ -36,7 +46,7 @@ function Sidebar() {
         {/* Dashboard */}
         <Link
           to="/"
-          className="flex items-center gap-3 bg-blue-600 p-3 rounded-xl text-white"
+          className={navLinkClass("/")}
         >
           <FaChartPie />
           <span>Dashboard</span>
@@ -45,7 +55,7 @@ function Sidebar() {
         {/* Live Signals */}
         <Link
           to="/signals"
-          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+          className={navLinkClass("/signals")}
         >
           <FaSignal />
           <span>Live Signals</span>
@@ -54,7 +64,7 @@ function Sidebar() {
         {/* Paper Trading */}
         <Link
           to="/paper-trading"
-          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+          className={navLinkClass("/paper-trading")}
         >
           <FaChartLine />
           <span>Paper Trading</span>
@@ -63,7 +73,7 @@ function Sidebar() {
         {/* Strategies */}
         <Link
           to="/strategies"
-          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+          className={navLinkClass("/strategies")}
         >
           <FaBrain />
           <span>Strategies</span>
@@ -72,7 +82,7 @@ function Sidebar() {
         {/* Backtesting */}
         <Link
           to="/backtesting"
-          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+          className={navLinkClass("/backtesting")}
         >
           <FaVial />
           <span>Backtesting</span>
@@ -81,7 +91,7 @@ function Sidebar() {
         {/* Research Lab */}
         <Link
           to="/research"
-          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+          className={navLinkClass("/research")}
         >
           <FaFlask />
           <span>Research Lab</span>
@@ -90,7 +100,7 @@ function Sidebar() {
         {/* Analytics */}
         <Link
           to="/analytics"
-          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+          className={navLinkClass("/analytics")}
         >
           <FaChartPie />
           <span>Analytics</span>
@@ -99,7 +109,7 @@ function Sidebar() {
         {/* Risk Dashboard */}
         <Link
           to="/risk-dashboard"
-          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+          className={navLinkClass("/risk-dashboard")}
         >
           <FaShieldAlt />
           <span>Risk Dashboard</span>
@@ -108,7 +118,7 @@ function Sidebar() {
         {/* Reports */}
         <Link
           to="/reports"
-          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+          className={navLinkClass("/reports")}
         >
           <FaFileAlt />
           <span>Reports</span>
@@ -117,7 +127,7 @@ function Sidebar() {
         {/* AI Insights */}
         <Link
           to="/ai-insights"
-          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+          className={navLinkClass("/ai-insights")}
         >
           <FaRobot />
           <span>AI Insights</span>
@@ -126,13 +136,14 @@ function Sidebar() {
         {/* Settings */}
         <Link
           to="/settings"
-          className="flex items-center gap-3 text-gray-400 hover:text-white hover:bg-[#111827] p-3 rounded-xl transition"
+          className={navLinkClass("/settings")}
         >
           <FaCog />
           <span>Settings</span>
         </Link>
 
       </div>
+
     </div>
   );
 }
