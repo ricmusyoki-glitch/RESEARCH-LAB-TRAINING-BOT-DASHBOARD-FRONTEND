@@ -2,6 +2,8 @@ import MainLayout from "../layouts/MainLayout";
 import Sidebar from "../components/SideBar";
 import StatsCard from "../components/StatsCard";
 import Navbar from "../components/Navbar"; 
+import PerformanceChart from "../components/PerformanceChart";
+import ActivityPanel from "../components/ActivityPanel";
 
 function Dashboard () {
   return (
@@ -45,6 +47,20 @@ function Dashboard () {
                         />
 
                 </div> 
+
+                <div className="grid grid-cols-1 xl:grid-cols-3 gap-5 mt-8">
+
+                     {/* Chart Section */}
+                       <div className="xl:col-span-2">
+                          <PerformanceChart />
+                       </div>
+
+                     {/* Activity Panel */}
+                       <div>
+                          <ActivityPanel />
+                       </div>
+
+                </div>
 
       </div> 
 
