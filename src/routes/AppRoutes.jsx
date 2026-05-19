@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "../pages/Dashboard";
 
-function App() {
+function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
@@ -11,4 +11,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppRoutes;
