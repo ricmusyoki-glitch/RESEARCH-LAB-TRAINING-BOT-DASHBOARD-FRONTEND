@@ -1,8 +1,8 @@
 import MainLayout from "../layouts/MainLayout";
-import Sidebar from "../components/SideBar";
-import Navbar from "../components/Navbar";
-import SignalsFilterBar from "../components/SignalsFilterBar";
-import SignalCard from "../components/SignalCard";
+import Sidebar from "../components/shared/SideBar";
+import Navbar from "../components/shared/Navbar";
+import SignalsFilterBar from "../components/live-signals/SignalsFilterBar";
+import SignalCard from "../components/live-signals/SignalCard";
 
 function LiveSignals() {
   return (

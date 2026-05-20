@@ -1,11 +1,11 @@
 import MainLayout from "../layouts/MainLayout";
-import Sidebar from "../components/SideBar";
-import Navbar from "../components/Navbar";
+import Sidebar from "../components/shared/SideBar";
+import Navbar from "../components/shared/Navbar";
 
-import ReportSummaryCard from "../components/ReportSummaryCard";
-import TradingJournalPanel from "../components/TradingJournalpanel";
-import AIReportPanel from "../components/AIReportPanel";
-import ExportReportsPanel from "../components/ExportReportsPanel";
+import ReportSummaryCard from "../components/reports/ReportSummaryCard";
+import TradingJournalPanel from "../components/reports/TradingJournalpanel";
+import AIReportPanel from "../components/reports/AIReportPanel";
+import ExportReportsPanel from "../components/reports/ExportReportsPanel";
 
 function Reports() {
   return (

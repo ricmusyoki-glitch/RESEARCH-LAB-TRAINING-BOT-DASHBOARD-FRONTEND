@@ -1,10 +1,10 @@
 import MainLayout from "../layouts/MainLayout";
-import Sidebar from "../components/SideBar";
-import Navbar from "../components/Navbar";
+import Sidebar from "../components/shared/SideBar";
+import Navbar from "../components/shared/Navbar";
 
-import PaperAccountCard from "../components/PaperAccountCard";
-import PaperTradesTable from "../components/PaperTradesTable";
-import TradeHistoryPanel from "../components/TradeHistoryPanel";
+import PaperAccountCard from "../components/paper-trading/PaperAccountCard";
+import PaperTradesTable from "../components/paper-trading/PaperTradesTable";
+import TradeHistoryPanel from "../components/paper-trading/TradeHistoryPanel";
 
 function PaperTrading() {
   return (

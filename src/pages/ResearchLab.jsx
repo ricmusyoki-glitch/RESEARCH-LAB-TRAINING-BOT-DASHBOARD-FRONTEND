@@ -1,10 +1,10 @@
 import MainLayout from "../layouts/MainLayout";
-import Sidebar from "../components/SideBar";
-import Navbar from "../components/Navbar";
+import Sidebar from "../components/shared/SideBar";
+import Navbar from "../components/shared/Navbar";
 
-import StrategyCard from "../components/StrategyCard";
-import ResearchInsightsPanel from "../components/ResearchInsightsPanel";
-import VolatilityPanel from "../components/VolatilityPanel";
+import StrategyCard from "../components/research-lab/StrategyCard";
+import ResearchInsightsPanel from "../components/research-lab/ResearchInsightsPanel";
+import VolatilityPanel from "../components/research-lab/VolatilityPanel";
 
 function ResearchLab() {
   return (

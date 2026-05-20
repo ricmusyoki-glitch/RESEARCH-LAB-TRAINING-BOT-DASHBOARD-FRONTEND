@@ -1,9 +1,9 @@
 import MainLayout from "../layouts/MainLayout";
-import Sidebar from "../components/SideBar";
-import Navbar from "../components/Navbar";
+import Sidebar from "../components/shared/SideBar";
+import Navbar from "../components/shared/Navbar";
 
-import StrategyManagementCard from "../components/StrategyManagementCard";
-import StrategyInsightsPanel from "../components/StrategyInsightsPanel";
+import StrategyManagementCard from "../components/strategies/StrategyManagementCard";
+import StrategyInsightsPanel from "../components/strategies/StrategyInsightsPanel";
 
 function Strategies() {
   return (

@@ -1,10 +1,10 @@
 import MainLayout from "../layouts/MainLayout";
-import Sidebar from "../components/SideBar";
-import Navbar from "../components/Navbar";
+import Sidebar from "../components/shared/SideBar";
+import Navbar from "../components/shared/Navbar";
 
-import RiskMetricCard from "../components/RiskMetricCard";
-import ExposurePanel from "../components/ExposurePanel";
-import RiskAlertsPanel from "../components/RiskAlertsPanel";
+import RiskMetricCard from "../components/risk-dashboard/RiskMetricCard";
+import ExposurePanel from "../components/risk-dashboard/ExposurePanel";
+import RiskAlertsPanel from "../components/risk-dashboard/RiskAlertsPanel";
 
 function RiskDashboard() {
   return (

@@ -1,10 +1,10 @@
 import MainLayout from "../layouts/MainLayout";
-import Sidebar from "../components/SideBar";
-import Navbar from "../components/Navbar";
+import Sidebar from "../components/shared/SideBar";
+import Navbar from "../components/shared/Navbar";
 
-import AIPredictionCard from "../components/AIPredictionCard";
-import MarketSentimentPanel from "../components/MarketSentimentPanel";
-import AIMonitoringFeed from "../components/AIMonitoringFeed";
+import AIPredictionCard from "../components/ai-insights/AIPredictionCard";
+import MarketSentimentPanel from "../components/ai-insights/MarketSentimentPanel";
+import AIMonitoringFeed from "../components/ai-insights/AIMonitoringFeed";
 
 function AIInsights() {
   return (

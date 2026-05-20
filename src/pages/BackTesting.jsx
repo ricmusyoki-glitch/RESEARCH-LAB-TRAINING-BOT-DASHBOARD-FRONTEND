@@ -1,11 +1,11 @@
 import MainLayout from "../layouts/MainLayout";
-import Sidebar from "../components/SideBar";
-import Navbar from "../components/Navbar";
+import Sidebar from "../components/shared/SideBar";
+import Navbar from "../components/shared/Navbar";
 
-import BacktestConfigPanel from "../components/BacktestConfigPanel";
-import BacktestResultCard from "../components/BacktestResultCard";
-import BacktestEquityChart from "../components/BacktestEquityChart";
-import BacktestInsightsPanel from "../components/BacktestInsightsPanel";
+import BacktestConfigPanel from "../components/backtesting/BacktestConfigPanel";
+import BacktestResultCard from "../components/backtesting/BacktestResultCard";
+import BacktestEquityChart from "../components/backtesting/BacktestEquityChart";
+import BacktestInsightsPanel from "../components/backtesting/BacktestInsightsPanel";
 
 function Backtesting() {
   return (

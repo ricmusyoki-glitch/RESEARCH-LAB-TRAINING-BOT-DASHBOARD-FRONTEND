@@ -1,11 +1,11 @@
 import MainLayout from "../layouts/MainLayout";
-import Sidebar from "../components/SideBar";
-import StatsCard from "../components/StatsCard";
-import Navbar from "../components/Navbar"; 
-import PerformanceChart from "../components/PerformanceChart";
-import ActivityPanel from "../components/ActivityPanel";
-import TradesTable from "../components/TradesTable";
-import AIInsightsPanel from "../components/AIInsightsPanel";
+import Sidebar from "../components/shared/SideBar";
+import StatsCard from "../components/dashboard/StatsCard";
+import Navbar from "../components/shared/Navbar";
+import PerformanceChart from "../components/dashboard/PerformanceChart";
+import ActivityPanel from "../components/dashboard/ActivityPanel";
+import TradesTable from "../components/dashboard/TradesTable";
+import AIInsightsPanel from "../components/dashboard/AIInsightsPanel";
 
 function Dashboard () {
   return (

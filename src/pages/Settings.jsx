@@ -1,11 +1,11 @@
 import MainLayout from "../layouts/MainLayout";
-import Sidebar from "../components/SideBar";
-import Navbar from "../components/Navbar";
+import Sidebar from "../components/shared/SideBar";
+import Navbar from "../components/shared/Navbar";
 
-import ProfileSettingsPanel from "../components/ProfileSettingsPanel";
-import AISettingsPanel from "../components/AISettingsPanel";
-import RiskSettingsPanel from "../components/RiskSettingsPanel";
-import SecuritySettingsPanel from "../components/SecuritySettingsPanel";
+import ProfileSettingsPanel from "../components/settings/ProfileSettingsPanel";
+import AISettingsPanel from "../components/settings/AISettingsPanel";
+import RiskSettingsPanel from "../components/settings/RiskSettingsPanel";
+import SecuritySettingsPanel from "../components/settings/SecuritySettingsPanel";
 
 function Settings() {
   return (

@@ -1,10 +1,10 @@
 import MainLayout from "../layouts/MainLayout";
-import Sidebar from "../components/SideBar";
-import Navbar from "../components/Navbar";
+import Sidebar from "../components/shared/SideBar";
+import Navbar from "../components/shared/Navbar";
 
-import EquityCurveChart from "../components/EquityCurveChart";
-import StrategyComparison from "../components/StrategyComparison";
-import PortfolioAllocation from "../components/PortfolioAllocation";
+import EquityCurveChart from "../components/analytics/EquityCurveChart";
+import StrategyComparison from "../components/analytics/StrategyComparison";
+import PortfolioAllocation from "../components/analytics/PortfolioAllocation";
 
 function Analytics() {
   return (
