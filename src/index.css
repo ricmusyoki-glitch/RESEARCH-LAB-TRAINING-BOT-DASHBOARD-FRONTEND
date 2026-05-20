@@ -8,3 +8,13 @@ body {
   color: white;
   font-family: Inter, sans-serif;
 } 
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+} 

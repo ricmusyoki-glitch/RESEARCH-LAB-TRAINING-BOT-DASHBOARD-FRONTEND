@@ -1,72 +1,71 @@
+const strategies = [
+  {
+    name: "Momentum Breakout",
+    roi: "+24.5%",
+    roiColor: "text-green-400",
+    note: "Best performing strategy this month.",
+  },
+  {
+    name: "Trend Continuation",
+    roi: "+18.1%",
+    roiColor: "text-blue-400",
+    note: "Stable profitability with low drawdown.",
+  },
+  {
+    name: "Mean Reversion",
+    roi: "-3.7%",
+    roiColor: "text-red-400",
+    note: "Underperforming during volatile market conditions.",
+  },
+];
+
 function StrategyComparison() {
   return (
-    <div className="bg-[#111827] p-5 rounded-2xl border border-gray-800">
+    <div
+      className="
+        relative overflow-hidden
+        rounded-[32px]
+        border border-white/[0.08]
+        bg-white/[0.03]
+        backdrop-blur-2xl
+        p-7
+        shadow-[0_8px_32px_rgba(0,0,0,0.37)]
+      "
+    >
 
-      <h2 className="text-xl font-bold text-white mb-5">
-        Strategy Comparison
-      </h2>
+      <div className="absolute bottom-[-80px] right-[-80px] w-[220px] h-[220px] bg-purple-500/10 rounded-full blur-3xl"></div>
 
-      <div className="space-y-4">
+      <div className="relative z-10 flex items-center justify-between mb-8">
 
-        <div className="bg-[#1F2937] p-4 rounded-xl">
-
-          <div className="flex items-center justify-between">
-
-            <p className="text-white font-bold">
-              Momentum Breakout
-            </p>
-
-            <p className="text-green-400 font-bold">
-              +24.5%
-            </p>
-
-          </div>
-
-          <p className="text-gray-400 text-sm mt-2">
-            Best performing strategy this month.
-          </p>
-
+        <div>
+          <h2 className="text-white text-2xl font-bold tracking-tight">Strategy Comparison</h2>
+          <p className="text-gray-400 text-sm mt-1">AI-ranked strategy performance</p>
         </div>
 
-        <div className="bg-[#1F2937] p-4 rounded-xl">
+      </div>
 
-          <div className="flex items-center justify-between">
+      <div className="space-y-4 relative z-10">
 
-            <p className="text-white font-bold">
-              Trend Continuation
-            </p>
+        {strategies.map((s, index) => (
+          <div
+            key={index}
+            className="
+              rounded-3xl border border-white/[0.05]
+              bg-white/[0.03] p-5
+              transition-all duration-500
+              hover:border-white/20 hover:scale-[1.01]
+            "
+          >
 
-            <p className="text-blue-400 font-bold">
-              +18.1%
-            </p>
+            <div className="flex items-center justify-between mb-2">
+              <p className="text-white font-bold">{s.name}</p>
+              <p className={`font-bold ${s.roiColor}`}>{s.roi}</p>
+            </div>
 
-          </div>
-
-          <p className="text-gray-400 text-sm mt-2">
-            Stable profitability with low drawdown.
-          </p>
-
-        </div>
-
-        <div className="bg-[#1F2937] p-4 rounded-xl">
-
-          <div className="flex items-center justify-between">
-
-            <p className="text-white font-bold">
-              Mean Reversion
-            </p>
-
-            <p className="text-red-400 font-bold">
-              -3.7%
-            </p>
+            <p className="text-gray-400 text-sm">{s.note}</p>
 
           </div>
-
-          <p className="text-gray-400 text-sm mt-2">
-            Underperforming during volatile market conditions.
-          </p>
-
-        </div>
+        ))}
 
       </div>
 
