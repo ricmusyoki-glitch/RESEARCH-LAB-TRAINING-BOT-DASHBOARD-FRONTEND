@@ -1,31 +1,47 @@
 import MainLayout from "../layouts/MainLayout";
-import Sidebar from "../components/shared/SideBar";
+
 import Navbar from "../components/shared/Navbar";
 
-import ProfileSettingsPanel from "../components/settings/ProfileSettingsPanel";
-import AISettingsPanel from "../components/settings/AISettingsPanel";
-import RiskSettingsPanel from "../components/settings/RiskSettingsPanel";
-import SecuritySettingsPanel from "../components/settings/SecuritySettingsPanel";
+import SystemPreferencesPanel from "../components/settings/SystemPreferencesPanel";
+import AIConfigurationPanel from "../components/settings/AIConfigurationPanel";
+import RiskManagementSettingsPanel from "../components/settings/RiskManagementSettingsPanel";
+import AutomationControlPanel from "../components/settings/AutomationControlPanel";
+import SettingsInsightsPanel from "../components/settings/SettingsInsightsPanel";
 
 function Settings() {
   return (
     <MainLayout>
 
-      <Sidebar />
+      <div className="min-h-screen bg-slate-950">
 
-      <div className="flex-1 bg-[#0B1120] p-6 overflow-y-auto">
-
+        {/* Navbar */}
         <Navbar />
 
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
+        {/* Settings Content */}
+        <div
+          className="
+            space-y-8
 
-          <ProfileSettingsPanel />
+            p-4
+            md:p-6
+            xl:p-8
+          "
+        >
 
-          <AISettingsPanel />
+          {/* System Preferences */}
+          <SystemPreferencesPanel />
 
-          <RiskSettingsPanel />
+          {/* AI Configuration */}
+          <AIConfigurationPanel />
 
-          <SecuritySettingsPanel />
+          {/* Risk Management */}
+          <RiskManagementSettingsPanel />
+
+          {/* Automation Control */}
+          <AutomationControlPanel />
+
+          {/* AI Settings Insights */}
+          <SettingsInsightsPanel />
 
         </div>
 
