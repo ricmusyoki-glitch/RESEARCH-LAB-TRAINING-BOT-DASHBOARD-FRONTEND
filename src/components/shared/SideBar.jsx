@@ -52,7 +52,7 @@ const navItems = [
 
   {
     name: "Research Lab",
-    path: "/research-lab",
+    path: "/research",
     icon: FlaskConical,
   },
 

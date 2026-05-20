@@ -1,56 +1,43 @@
 import MainLayout from "../layouts/MainLayout";
-import Sidebar from "../components/shared/SideBar";
+
 import Navbar from "../components/shared/Navbar";
 
-import StrategyCard from "../components/research-lab/StrategyCard";
+import ResearchOverviewPanel from "../components/research-lab/ResearchOverviewPanel";
+import ModelTrainingPanel from "../components/research-lab/ModelTrainingPanel";
+import StrategyExperimentPanel from "../components/research-lab/StrategyExperimentPanel";
 import ResearchInsightsPanel from "../components/research-lab/ResearchInsightsPanel";
-import VolatilityPanel from "../components/research-lab/VolatilityPanel";
 
 function ResearchLab() {
   return (
     <MainLayout>
 
-      <Sidebar />
+      <div className="min-h-screen bg-slate-950">
 
-      <div className="flex-1 bg-[#0B1120] p-6 overflow-y-auto">
-
+        {/* Navbar */}
         <Navbar />
 
-        {/* Strategy Rankings */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mb-8">
+        {/* Research Lab Content */}
+        <div
+          className="
+            space-y-8
 
-          <StrategyCard
-            name="Momentum Breakout"
-            winRate="72%"
-            profitFactor="2.4"
-            drawdown="4.2%"
-            status="Optimized"
-          />
+            p-4
+            md:p-6
+            xl:p-8
+          "
+        >
 
-          <StrategyCard
-            name="Trend Continuation"
-            winRate="68%"
-            profitFactor="1.9"
-            drawdown="5.7%"
-            status="Optimized"
-          />
+          {/* Research Overview */}
+          <ResearchOverviewPanel />
 
-          <StrategyCard
-            name="Mean Reversion"
-            winRate="54%"
-            profitFactor="1.2"
-            drawdown="9.8%"
-            status="Needs Review"
-          />
+          {/* Model Training */}
+          <ModelTrainingPanel />
 
-        </div>
+          {/* Strategy Experiments */}
+          <StrategyExperimentPanel />
 
-        {/* Insights Grid */}
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
-
+          {/* AI Research Insights */}
           <ResearchInsightsPanel />
-
-          <VolatilityPanel />
 
         </div>
 
