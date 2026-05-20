@@ -1,4 +1,4 @@
-function StrategyInsightsPanel() {
+function StrategyPerformanceOverview() {
   return (
     <div
       className="
@@ -26,7 +26,7 @@ function StrategyInsightsPanel() {
         className="
           absolute
           -top-20
-          -right-20
+          -left-20
 
           h-72
           w-72
@@ -55,7 +55,6 @@ function StrategyInsightsPanel() {
         "
       >
 
-        {/* Left */}
         <div>
 
           <p
@@ -67,7 +66,7 @@ function StrategyInsightsPanel() {
               text-purple-400
             "
           >
-            AI Strategy Intelligence
+            Institutional Quant Analytics
           </p>
 
           <h2
@@ -83,7 +82,7 @@ function StrategyInsightsPanel() {
               text-white
             "
           >
-            Quantum Momentum Strategy
+            Strategy Performance
           </h2>
 
           <p
@@ -100,15 +99,15 @@ function StrategyInsightsPanel() {
               text-slate-400
             "
           >
-            AI-powered intraday forex execution model
-            focused on liquidity sweeps, momentum
-            continuation, and institutional volatility
-            expansion during London and New York sessions.
+            AI-driven forex strategy analytics
+            focused on execution efficiency,
+            profitability consistency, and
+            institutional-grade risk management.
           </p>
 
         </div>
 
-        {/* Status */}
+        {/* AI Optimization */}
         <div
           className="
             flex
@@ -120,9 +119,9 @@ function StrategyInsightsPanel() {
             rounded-full
 
             border
-            border-cyan-400/20
+            border-emerald-400/20
 
-            bg-cyan-500/10
+            bg-emerald-500/10
 
             px-4
             py-2
@@ -134,7 +133,7 @@ function StrategyInsightsPanel() {
               h-2
               w-2
               rounded-full
-              bg-cyan-400
+              bg-emerald-400
               animate-pulse
             "
           />
@@ -144,17 +143,17 @@ function StrategyInsightsPanel() {
               text-sm
               font-medium
 
-              text-cyan-400
+              text-emerald-400
             "
           >
-            Active Strategy
+            AI Optimized
           </p>
 
         </div>
 
       </div>
 
-      {/* Metrics */}
+      {/* Analytics Grid */}
       <div
         className="
           relative
@@ -167,21 +166,22 @@ function StrategyInsightsPanel() {
           gap-5
 
           md:grid-cols-2
+
           xl:grid-cols-4
         "
       >
 
-        {/* Confidence */}
+        {/* Net Profit */}
         <div
           className="
-            rounded-2xl
+            rounded-3xl
 
             border
             border-emerald-400/10
 
             bg-emerald-500/5
 
-            p-5
+            p-6
           "
         >
 
@@ -194,78 +194,49 @@ function StrategyInsightsPanel() {
               text-slate-400
             "
           >
-            AI Confidence
+            Net Profit
           </p>
 
           <h3
             className="
-              mt-3
+              mt-4
 
               text-3xl
+              md:text-4xl
 
               font-black
 
               text-emerald-400
             "
           >
-            92%
+            +$42.8K
           </h3>
-
-        </div>
-
-        {/* Drawdown */}
-        <div
-          className="
-            rounded-2xl
-
-            border
-            border-red-400/10
-
-            bg-red-500/5
-
-            p-5
-          "
-        >
 
           <p
             className="
-              text-xs
-              uppercase
-              tracking-widest
+              mt-3
+
+              text-sm
 
               text-slate-400
             "
           >
-            Max Drawdown
+            6-Month Strategy Growth
           </p>
-
-          <h3
-            className="
-              mt-3
-
-              text-3xl
-
-              font-black
-
-              text-red-400
-            "
-          >
-            5.2%
-          </h3>
 
         </div>
 
-        {/* Win Rate */}
+        {/* Profit Factor */}
         <div
           className="
-            rounded-2xl
+            rounded-3xl
 
             border
             border-cyan-400/10
 
             bg-cyan-500/5
 
-            p-5
+            p-6
           "
         >
 
@@ -278,36 +249,49 @@ function StrategyInsightsPanel() {
               text-slate-400
             "
           >
-            Win Rate
+            Profit Factor
           </p>
 
           <h3
             className="
-              mt-3
+              mt-4
 
               text-3xl
+              md:text-4xl
 
               font-black
 
               text-cyan-400
             "
           >
-            71%
+            2.84
           </h3>
+
+          <p
+            className="
+              mt-3
+
+              text-sm
+
+              text-slate-400
+            "
+          >
+            Risk-Adjusted Efficiency
+          </p>
 
         </div>
 
-        {/* Avg RR */}
+        {/* Execution Efficiency */}
         <div
           className="
-            rounded-2xl
+            rounded-3xl
 
             border
             border-purple-400/10
 
             bg-purple-500/5
 
-            p-5
+            p-6
           "
         >
 
@@ -320,28 +304,96 @@ function StrategyInsightsPanel() {
               text-slate-400
             "
           >
-            Avg RR
+            Execution Accuracy
           </p>
 
           <h3
             className="
-              mt-3
+              mt-4
 
               text-3xl
+              md:text-4xl
 
               font-black
 
               text-purple-400
             "
           >
-            1:3.4
+            94%
           </h3>
+
+          <p
+            className="
+              mt-3
+
+              text-sm
+
+              text-slate-400
+            "
+          >
+            AI Entry Precision
+          </p>
+
+        </div>
+
+        {/* Stability */}
+        <div
+          className="
+            rounded-3xl
+
+            border
+            border-orange-400/10
+
+            bg-orange-500/5
+
+            p-6
+          "
+        >
+
+          <p
+            className="
+              text-xs
+              uppercase
+              tracking-widest
+
+              text-slate-400
+            "
+          >
+            Stability Score
+          </p>
+
+          <h3
+            className="
+              mt-4
+
+              text-3xl
+              md:text-4xl
+
+              font-black
+
+              text-orange-400
+            "
+          >
+            8.9/10
+          </h3>
+
+          <p
+            className="
+              mt-3
+
+              text-sm
+
+              text-slate-400
+            "
+          >
+            Market Adaptability
+          </p>
 
         </div>
 
       </div>
 
-      {/* AI Logic */}
+      {/* Bottom Analysis */}
       <div
         className="
           relative
@@ -352,74 +404,46 @@ function StrategyInsightsPanel() {
           rounded-3xl
 
           border
-          border-purple-400/10
+          border-white/10
 
-          bg-purple-500/5
+          bg-slate-800/50
 
           p-6
         "
       >
 
-        <p
+        <h3
           className="
-            text-sm
-            font-semibold
-
-            text-purple-400
+            text-2xl
+            font-black
+            text-white
           "
         >
-          AI Execution Logic
-        </p>
+          AI Optimization Summary
+        </h3>
 
-        <div
+        <p
           className="
             mt-5
 
-            grid
-            grid-cols-1
-            gap-5
+            text-sm
+            md:text-base
 
-            md:grid-cols-2
+            leading-8
+
+            text-slate-300
           "
         >
-
-          <div>
-
-            <p className="text-sm leading-7 text-slate-300">
-
-              • Detects liquidity sweeps around key
-              institutional levels.
-
-            </p>
-
-            <p className="mt-4 text-sm leading-7 text-slate-300">
-
-              • Confirms momentum continuation using
-              volatility expansion models.
-
-            </p>
-
-          </div>
-
-          <div>
-
-            <p className="text-sm leading-7 text-slate-300">
-
-              • Filters low-quality entries during
-              ranging market conditions.
-
-            </p>
-
-            <p className="mt-4 text-sm leading-7 text-slate-300">
-
-              • Optimized for M5 and M15 intraday
-              forex execution.
-
-            </p>
-
-          </div>
-
-        </div>
+          The Quantum Momentum Strategy has shown
+          strong adaptability during high-volatility
+          London and New York sessions, maintaining
+          high execution precision while minimizing
+          unnecessary exposure during ranging market
+          conditions. AI optimization models continue
+          to refine entry timing and liquidity sweep
+          detection for improved intraday forex
+          performance.
+        </p>
 
       </div>
 
@@ -427,4 +451,4 @@ function StrategyInsightsPanel() {
   );
 }
 
-export default StrategyInsightsPanel;
+export default StrategyPerformanceOverview;
