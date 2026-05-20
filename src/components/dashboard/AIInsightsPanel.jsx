@@ -2,22 +2,22 @@ const insights = [
   {
     title: "Market Sentiment Shift",
     description:
-      "AI detected increasing bullish momentum across major forex pairs after institutional liquidity expansion.",
-    color: "cyan",
+      "AI models detected increasing bullish pressure across major forex markets after liquidity expansion.",
+    type: "Bullish",
   },
 
   {
-    title: "Volatility Warning",
+    title: "Volatility Alert",
     description:
-      "NASDAQ volatility expected to rise significantly ahead of major economic announcements.",
-    color: "yellow",
+      "NASDAQ volatility expected to rise ahead of upcoming macroeconomic announcements.",
+    type: "Warning",
   },
 
   {
     title: "Strategy Optimization",
     description:
-      "Momentum continuation strategies currently outperform reversal systems by 18.4%.",
-    color: "green",
+      "Momentum continuation systems are outperforming reversal strategies by 18.4%.",
+    type: "Optimized",
   },
 ];
 
@@ -25,99 +25,234 @@ function AIInsightsPanel() {
   return (
     <div
       className="
-        relative overflow-hidden
-        rounded-[32px]
-        border border-white/[0.08]
-        bg-white/[0.03]
-        backdrop-blur-2xl
-        p-7
-        shadow-[0_8px_32px_rgba(0,0,0,0.37)]
+        relative
+        overflow-hidden
+        rounded-3xl
+        border
+        border-white/10
+        bg-slate-900/80
+        backdrop-blur-xl
+        p-5
+        md:p-6
+        xl:p-7
+        shadow-2xl
       "
     >
 
-      {/* Background Glow */}
-      <div className="absolute top-[-120px] right-[-100px] w-[260px] h-[260px] bg-cyan-500/10 rounded-full blur-3xl"></div>
+      {/* Purple Glow */}
+      <div
+        className="
+          absolute
+          -top-20
+          -right-20
+          h-72
+          w-72
+          rounded-full
+          bg-purple-500/20
+          blur-3xl
+        "
+      />
+
+      {/* Cyan Glow */}
+      <div
+        className="
+          absolute
+          -bottom-20
+          -left-20
+          h-72
+          w-72
+          rounded-full
+          bg-cyan-500/10
+          blur-3xl
+        "
+      />
 
       {/* Header */}
-      <div className="relative z-10 flex items-center justify-between mb-8">
+      <div
+        className="
+          relative
+          z-10
+          mb-8
+          flex
+          flex-col
+          gap-4
+          md:flex-row
+          md:items-center
+          md:justify-between
+        "
+      >
 
+        {/* Left */}
         <div>
 
-          <h2 className="text-white text-2xl font-bold tracking-tight">
-
+          <h2
+            className="
+              text-2xl
+              md:text-3xl
+              font-bold
+              tracking-tight
+              text-white
+            "
+          >
             AI Intelligence Center
-
           </h2>
 
-          <p className="text-gray-400 text-sm mt-1">
-
-            Real-time market intelligence and predictive analytics
-
+          <p
+            className="
+              mt-2
+              text-sm
+              text-slate-400
+            "
+          >
+            Real-time predictive market intelligence
           </p>
 
         </div>
 
-        {/* AI Pulse */}
-        <div className="flex items-center gap-3">
+        {/* AI Status */}
+        <div
+          className="
+            flex
+            items-center
+            gap-3
+            self-start
+            rounded-full
+            border
+            border-cyan-400/20
+            bg-cyan-500/10
+            px-4
+            py-2
+          "
+        >
 
           <div className="relative">
 
-            <div className="w-3 h-3 rounded-full bg-cyan-400 animate-pulse"></div>
+            <div
+              className="
+                h-2
+                w-2
+                rounded-full
+                bg-cyan-400
+                animate-pulse
+              "
+            />
 
-            <div className="absolute inset-0 w-3 h-3 rounded-full bg-cyan-400 animate-ping opacity-30"></div>
+            <div
+              className="
+                absolute
+                inset-0
+                h-2
+                w-2
+                rounded-full
+                bg-cyan-400
+                animate-ping
+                opacity-40
+              "
+            />
 
           </div>
 
-          <p className="text-cyan-400 text-sm font-medium">
-
+          <p
+            className="
+              text-sm
+              font-medium
+              text-cyan-400
+            "
+          >
             AI Active
-
           </p>
 
         </div>
 
       </div>
 
-      {/* AI Status Card */}
+      {/* AI Engine Card */}
       <div
         className="
-          relative z-10
+          relative
+          z-10
           rounded-3xl
-          border border-cyan-500/10
-          bg-gradient-to-br from-cyan-500/10 to-transparent
+          border
+          border-purple-400/10
+          bg-gradient-to-br
+          from-purple-500/10
+          to-slate-900/40
           p-6
-          mb-6
         "
       >
 
-        <div className="flex items-center justify-between">
+        <div
+          className="
+            flex
+            flex-col
+            gap-6
+            md:flex-row
+            md:items-center
+            md:justify-between
+          "
+        >
 
+          {/* Left */}
           <div>
 
-            <p className="text-gray-300 text-sm uppercase tracking-widest">
-
+            <p
+              className="
+                text-xs
+                uppercase
+                tracking-widest
+                text-slate-400
+              "
+            >
               Neural Engine Status
-
             </p>
 
-            <h3 className="text-white text-3xl font-black mt-3">
-
+            <h3
+              className="
+                mt-4
+                text-3xl
+                md:text-5xl
+                font-black
+                tracking-tight
+                text-white
+              "
+            >
               Operational
-
             </h3>
+
+            <p
+              className="
+                mt-4
+                max-w-xl
+                text-sm
+                leading-7
+                text-slate-300
+              "
+            >
+              AI systems continuously monitor liquidity,
+              volatility, sentiment, and institutional flow.
+            </p>
 
           </div>
 
-          <div className="relative flex items-center justify-center">
-
-            <div className="w-20 h-20 rounded-full border-4 border-cyan-500/20"></div>
-
-            <div className="absolute text-cyan-400 font-black text-xl">
-
-              98%
-
-            </div>
-
+          {/* Right */}
+          <div
+            className="
+              flex
+              h-28
+              w-28
+              items-center
+              justify-center
+              self-start
+              rounded-full
+              border-4
+              border-cyan-400/20
+              bg-cyan-500/5
+              text-3xl
+              font-black
+              text-cyan-400
+            "
+          >
+            98%
           </div>
 
         </div>
@@ -125,7 +260,14 @@ function AIInsightsPanel() {
       </div>
 
       {/* Insights */}
-      <div className="space-y-5 relative z-10">
+      <div
+        className="
+          relative
+          z-10
+          mt-8
+          space-y-5
+        "
+      >
 
         {insights.map((insight, index) => (
 
@@ -133,44 +275,59 @@ function AIInsightsPanel() {
             key={index}
             className="
               rounded-3xl
-              border border-white/[0.05]
-              bg-white/[0.03]
+              border
+              border-white/10
+              bg-slate-800/60
               p-5
-              transition-all duration-500
-              hover:border-white/20
-              hover:scale-[1.01]
+              transition-all
+              duration-500
+              hover:border-purple-400/30
+              hover:bg-slate-800/80
             "
           >
 
             {/* Top */}
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-center gap-4">
 
               <div
                 className={`
-                  w-3 h-3 rounded-full animate-pulse
+                  h-3
+                  w-3
+                  rounded-full
+                  animate-pulse
+
                   ${
-                    insight.color === "cyan"
-                      ? "bg-cyan-400"
-                      : insight.color === "yellow"
+                    insight.type === "Bullish"
+                      ? "bg-emerald-400"
+                      : insight.type === "Warning"
                       ? "bg-yellow-400"
-                      : "bg-green-400"
+                      : "bg-cyan-400"
                   }
                 `}
-              ></div>
+              />
 
-              <h3 className="text-white font-bold text-lg">
-
+              <h3
+                className="
+                  text-lg
+                  font-bold
+                  text-white
+                "
+              >
                 {insight.title}
-
               </h3>
 
             </div>
 
             {/* Description */}
-            <p className="text-gray-300 text-sm leading-relaxed">
-
+            <p
+              className="
+                mt-4
+                text-sm
+                leading-7
+                text-slate-300
+              "
+            >
               {insight.description}
-
             </p>
 
           </div>

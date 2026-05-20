@@ -1,6 +1,7 @@
 import MainLayout from "../layouts/MainLayout";
-import Sidebar from "../components/shared/SideBar";
+
 import Navbar from "../components/shared/Navbar";
+
 import StatsCard from "../components/dashboard/StatsCard";
 import PerformanceChart from "../components/dashboard/PerformanceChart";
 import ActivityPanel from "../components/dashboard/ActivityPanel";
@@ -12,74 +13,114 @@ function Dashboard() {
   return (
     <MainLayout>
 
-      <Sidebar />
+      <div
+        className="
+          min-h-screen
+          bg-slate-950
+        "
+      >
 
-      <div className="flex-1 bg-[#0B1120] p-6 overflow-y-auto">
-
+        {/* Navbar */}
         <Navbar />
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+        {/* Dashboard Content */}
+        <div
+          className="
+            p-4
+            md:p-6
+            xl:p-8
+          "
+        >
 
-          <StatsCard
-            title="Total Balance"
-            value="$125,430"
-            change="+2.45%"
-            changeColor="text-green-400"
-          />
+          {/* Stats Grid */}
+          <div
+            className="
+              grid
+              grid-cols-1
+              gap-5
+              md:grid-cols-2
+              xl:grid-cols-4
+            "
+          >
 
-          <StatsCard
-            title="Today's P/L"
-            value="$2,540"
-            change="+1.95%"
-            changeColor="text-green-400"
-          />
+            <StatsCard
+              title="Total Balance"
+              value="$125,430"
+              change="+2.45%"
+              changeColor=" text-green-400"
+            />
 
-          <StatsCard
-            title="Win Rate"
-            value="68.7%"
-            change="+4.2%"
-            changeColor="text-green-400"
-          />
+            <StatsCard
+              title="Today's P/L"
+              value="$2,540"
+              change="+1.95%"
+              changeColor=" text-green-400"
+            />
 
-          <StatsCard
-            title="Max Drawdown"
-            value="7.32%"
-            change="-1.21%"
-            changeColor="text-red-400"
-          />
+            <StatsCard
+              title="Win Rate"
+              value="68.7%"
+              change="+4.2%"
+              changeColor=" text-green-400"
+            />
 
-        </div>
+            <StatsCard
+              title="Max Drawdown"
+              value="7.32%"
+              change="-1.21%"
+              changeColor=" text-red-400"
+            />
 
-        {/* Performance Chart + Donut */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-5 mt-5">
-
-          <div className="xl:col-span-2">
-            <PerformanceChart />
           </div>
 
-          <div>
-            <PortfolioDonutChart />
+          {/* Performance + Donut */}
+          <div
+            className="
+              mt-8
+              grid
+              grid-cols-1
+              gap-8
+              xl:grid-cols-3
+            "
+          >
+
+            {/* Performance Chart */}
+            <div className="xl:col-span-2">
+
+              <PerformanceChart />
+
+            </div>
+
+            {/* Donut Chart */}
+            <div>
+
+              <PortfolioDonutChart />
+
+            </div>
+
           </div>
 
-        </div>
+          {/* Activity Feed */}
+          <div className="mt-8">
 
-        {/* AI Signal Feed + Trades + AI Insights */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-5 mt-5">
-
-          <div className="xl:col-span-2">
-            <TradesTable />
-          </div>
-
-          <div>
             <ActivityPanel />
+
           </div>
 
-        </div>
+          {/* Trades Table */}
+          <div className="mt-8">
 
-        {/* AI Insights */}
-        <div className="mt-5">
-          <AIInsightsPanel />
+            <TradesTable />
+
+          </div>
+
+          {/* AI Insights */}
+          <div className="mt-8">
+
+            <AIInsightsPanel />
+
+          </div>
+
         </div>
 
       </div>

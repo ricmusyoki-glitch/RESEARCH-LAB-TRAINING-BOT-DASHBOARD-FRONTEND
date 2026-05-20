@@ -22,47 +22,110 @@ function PerformanceChart() {
   return (
     <div
       className="
-        relative overflow-hidden
-        rounded-[32px]
-        border border-white/[0.08]
-        bg-white/[0.03]
-        backdrop-blur-2xl
-        p-7
-        shadow-[0_8px_32px_rgba(0,0,0,0.37)]
+        relative
+        overflow-hidden
+        rounded-3xl
+        border
+        border-white/10
+        bg-slate-900/80
+        backdrop-blur-xl
+        p-5
+        md:p-6
+        xl:p-7
+        shadow-2xl
       "
     >
 
-      {/* Glow Effect */}
-      <div className="absolute top-[-80px] right-[-80px] w-[220px] h-[220px] bg-blue-500/10 rounded-full blur-3xl"></div>
+      {/* Purple Glow */}
+      <div
+        className="
+          absolute
+          -top-16
+          -right-16
+          h-56
+          w-56
+          rounded-full
+          bg-purple-500/20
+          blur-3xl
+        "
+      />
 
       {/* Header */}
-      <div className="relative z-10 flex items-center justify-between mb-8">
+      <div
+        className="
+          relative
+          z-10
+          mb-8
+          flex
+          flex-col
+          gap-4
+          md:flex-row
+          md:items-center
+          md:justify-between
+        "
+      >
 
+        {/* Left */}
         <div>
 
-          <h2 className="text-white text-2xl font-bold tracking-tight">
-
+          <h2
+            className="
+              text-2xl
+              md:text-3xl
+              font-bold
+              tracking-tight
+              text-white
+            "
+          >
             Portfolio Performance
-
           </h2>
 
-          <p className="text-gray-400 text-sm mt-1">
-
-            AI-assisted account growth analytics
-
+          <p
+            className="
+              mt-2
+              text-sm
+              text-slate-400
+            "
+          >
+            AI-powered portfolio growth analytics
           </p>
 
         </div>
 
-        {/* Live Indicator */}
-        <div className="flex items-center gap-3">
+        {/* Right */}
+        <div
+          className="
+            flex
+            items-center
+            gap-3
+            self-start
+            rounded-full
+            border
+            border-emerald-400/20
+            bg-emerald-500/10
+            px-4
+            py-2
+          "
+        >
 
-          <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+          <div
+            className="
+              h-2
+              w-2
+              rounded-full
+              bg-emerald-400
+              animate-pulse
+            "
+          />
 
-          <p className="text-green-400 text-sm font-medium">
-
+          <p
+            className="
+              text-sm
+              font-medium
+              text-emerald-400
+            "
+          >
             Live Tracking
-
           </p>
 
         </div>
@@ -70,7 +133,14 @@ function PerformanceChart() {
       </div>
 
       {/* Chart */}
-      <div className="h-[420px] relative z-10">
+      <div
+        className="
+          relative
+          z-10
+          h-72
+          md:h-96
+        "
+      >
 
         <ResponsiveContainer width="100%" height="100%">
 
@@ -78,17 +148,23 @@ function PerformanceChart() {
 
             <defs>
 
-              <linearGradient id="colorBalance" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient
+                id="balanceGradient"
+                x1="0"
+                y1="0"
+                x2="0"
+                y2="1"
+              >
 
                 <stop
                   offset="0%"
-                  stopColor="#3B82F6"
+                  stopColor="#a855f7"
                   stopOpacity={0.8}
                 />
 
                 <stop
                   offset="100%"
-                  stopColor="#3B82F6"
+                  stopColor="#a855f7"
                   stopOpacity={0}
                 />
 
@@ -98,25 +174,25 @@ function PerformanceChart() {
 
             <CartesianGrid
               strokeDasharray="3 3"
-              stroke="rgba(255,255,255,0.05)"
+              stroke="rgba(255,255,255,0.08)"
             />
 
             <XAxis
               dataKey="month"
-              stroke="#9CA3AF"
+              stroke="#94a3b8"
               tickLine={false}
               axisLine={false}
             />
 
             <YAxis
-              stroke="#9CA3AF"
+              stroke="#94a3b8"
               tickLine={false}
               axisLine={false}
             />
 
             <Tooltip
               contentStyle={{
-                backgroundColor: "#111827",
+                backgroundColor: "#0f172a",
                 border: "1px solid rgba(255,255,255,0.1)",
                 borderRadius: "16px",
                 color: "white",
@@ -126,9 +202,9 @@ function PerformanceChart() {
             <Area
               type="monotone"
               dataKey="balance"
-              stroke="#3B82F6"
+              stroke="#c084fc"
               strokeWidth={4}
-              fill="url(#colorBalance)"
+              fill="url(#balanceGradient)"
             />
 
           </AreaChart>

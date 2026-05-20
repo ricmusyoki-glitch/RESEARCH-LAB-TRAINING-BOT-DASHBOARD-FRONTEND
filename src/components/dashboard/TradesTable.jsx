@@ -40,54 +40,118 @@ function TradesTable() {
   return (
     <div
       className="
-        relative overflow-hidden
-        rounded-[32px]
-        border border-white/[0.08]
-        bg-white/[0.03]
-        backdrop-blur-2xl
-        p-7
-        shadow-[0_8px_32px_rgba(0,0,0,0.37)]
+        relative
+        overflow-hidden
+        rounded-3xl
+        border
+        border-white/10
+        bg-slate-900/80
+        backdrop-blur-xl
+        p-5
+        md:p-6
+        xl:p-7
+        shadow-2xl
       "
     >
 
-      {/* Glow */}
-      <div className="absolute bottom-[-100px] right-[-100px] w-[240px] h-[240px] bg-purple-500/10 rounded-full blur-3xl"></div>
+      {/* Purple Glow */}
+      <div
+        className="
+          absolute
+          -bottom-16
+          -right-16
+          h-56
+          w-56
+          rounded-full
+          bg-purple-500/20
+          blur-3xl
+        "
+      />
 
       {/* Header */}
-      <div className="relative z-10 flex items-center justify-between mb-8">
+      <div
+        className="
+          relative
+          z-10
+          mb-8
+          flex
+          flex-col
+          gap-4
+          md:flex-row
+          md:items-center
+          md:justify-between
+        "
+      >
 
+        {/* Left */}
         <div>
 
-          <h2 className="text-white text-2xl font-bold tracking-tight">
-
+          <h2
+            className="
+              text-2xl
+              md:text-3xl
+              font-bold
+              tracking-tight
+              text-white
+            "
+          >
             Active Positions
-
           </h2>
 
-          <p className="text-gray-400 text-sm mt-1">
-
+          <p
+            className="
+              mt-2
+              text-sm
+              text-slate-400
+            "
+          >
             Institutional trade execution monitoring
-
           </p>
 
         </div>
 
-        <div className="flex items-center gap-3">
+        {/* Live Badge */}
+        <div
+          className="
+            flex
+            items-center
+            gap-3
+            self-start
+            rounded-full
+            border
+            border-emerald-400/20
+            bg-emerald-500/10
+            px-4
+            py-2
+          "
+        >
 
-          <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+          <div
+            className="
+              h-2
+              w-2
+              rounded-full
+              bg-emerald-400
+              animate-pulse
+            "
+          />
 
-          <p className="text-green-400 text-sm font-medium">
-
+          <p
+            className="
+              text-sm
+              font-medium
+              text-emerald-400
+            "
+          >
             Live Trades
-
           </p>
 
         </div>
 
       </div>
 
-      {/* Table */}
-      <div className="relative z-10 overflow-x-auto">
+      {/* Desktop Table */}
+      <div className="relative z-10 hidden overflow-x-auto xl:block">
 
         <table className="w-full border-separate border-spacing-y-4">
 
@@ -95,37 +159,37 @@ function TradesTable() {
 
             <tr>
 
-              <th className="text-left text-gray-400 text-xs uppercase tracking-widest font-medium px-4">
+              <th className="px-4 text-left text-xs font-medium uppercase tracking-widest text-slate-400">
 
                 Asset
 
               </th>
 
-              <th className="text-left text-gray-400 text-xs uppercase tracking-widest font-medium px-4">
+              <th className="px-4 text-left text-xs font-medium uppercase tracking-widest text-slate-400">
 
                 Type
 
               </th>
 
-              <th className="text-left text-gray-400 text-xs uppercase tracking-widest font-medium px-4">
+              <th className="px-4 text-left text-xs font-medium uppercase tracking-widest text-slate-400">
 
                 Entry
 
               </th>
 
-              <th className="text-left text-gray-400 text-xs uppercase tracking-widest font-medium px-4">
+              <th className="px-4 text-left text-xs font-medium uppercase tracking-widest text-slate-400">
 
                 Current
 
               </th>
 
-              <th className="text-left text-gray-400 text-xs uppercase tracking-widest font-medium px-4">
+              <th className="px-4 text-left text-xs font-medium uppercase tracking-widest text-slate-400">
 
-                Profit/Loss
+                P&L
 
               </th>
 
-              <th className="text-left text-gray-400 text-xs uppercase tracking-widest font-medium px-4">
+              <th className="px-4 text-left text-xs font-medium uppercase tracking-widest text-slate-400">
 
                 Status
 
@@ -142,26 +206,29 @@ function TradesTable() {
               <tr
                 key={index}
                 className="
-                  bg-white/[0.03]
-                  border border-white/[0.05]
-                  transition-all duration-500
-                  hover:bg-white/[0.05]
-                  hover:scale-[1.01]
+                  rounded-3xl
+                  border
+                  border-white/10
+                  bg-slate-800/60
+                  transition-all
+                  duration-500
+                  hover:bg-slate-800/80
+                  hover:border-purple-400/30
                 "
               >
 
                 {/* Asset */}
-                <td className="px-4 py-5 rounded-l-3xl">
+                <td className="rounded-l-3xl px-4 py-5">
 
                   <div>
 
-                    <p className="text-white font-bold">
+                    <p className="font-bold text-white">
 
                       {trade.pair}
 
                     </p>
 
-                    <p className="text-gray-400 text-sm mt-1">
+                    <p className="mt-1 text-sm text-slate-400">
 
                       AI monitored asset
 
@@ -176,11 +243,16 @@ function TradesTable() {
 
                   <span
                     className={`
-                      px-4 py-2 rounded-2xl text-sm font-bold
+                      rounded-2xl
+                      px-4
+                      py-2
+                      text-sm
+                      font-bold
+
                       ${
                         trade.type === "BUY"
-                          ? "bg-green-500/20 text-green-400"
-                          : "bg-red-500/20 text-red-400"
+                          ? "bg-emerald-500/10 text-emerald-400"
+                          : "bg-red-500/10 text-red-400"
                       }
                     `}
                   >
@@ -192,14 +264,14 @@ function TradesTable() {
                 </td>
 
                 {/* Entry */}
-                <td className="px-4 py-5 text-white font-medium">
+                <td className="px-4 py-5 font-medium text-white">
 
                   {trade.entry}
 
                 </td>
 
                 {/* Current */}
-                <td className="px-4 py-5 text-white font-medium">
+                <td className="px-4 py-5 font-medium text-white">
 
                   {trade.current}
 
@@ -209,9 +281,10 @@ function TradesTable() {
                 <td
                   className={`
                     px-4 py-5 font-bold
+
                     ${
                       trade.pnl.includes("+")
-                        ? "text-green-400"
+                        ? "text-emerald-400"
                         : "text-red-400"
                     }
                   `}
@@ -222,22 +295,26 @@ function TradesTable() {
                 </td>
 
                 {/* Status */}
-                <td className="px-4 py-5 rounded-r-3xl">
+                <td className="rounded-r-3xl px-4 py-5">
 
                   <div className="flex items-center gap-3">
 
                     <div
                       className={`
-                        w-2 h-2 rounded-full animate-pulse
+                        h-2
+                        w-2
+                        rounded-full
+                        animate-pulse
+
                         ${
                           trade.status === "Running"
-                            ? "bg-green-400"
+                            ? "bg-emerald-400"
                             : "bg-red-400"
                         }
                       `}
-                    ></div>
+                    />
 
-                    <p className="text-white font-medium">
+                    <p className="font-medium text-white">
 
                       {trade.status}
 
@@ -254,6 +331,148 @@ function TradesTable() {
           </tbody>
 
         </table>
+
+      </div>
+
+      {/* Mobile Cards */}
+      <div className="relative z-10 space-y-5 xl:hidden">
+
+        {trades.map((trade, index) => (
+
+          <div
+            key={index}
+            className="
+              rounded-3xl
+              border
+              border-white/10
+              bg-slate-800/60
+              p-5
+            "
+          >
+
+            {/* Top */}
+            <div className="flex items-center justify-between">
+
+              <div>
+
+                <h3 className="text-lg font-bold text-white">
+
+                  {trade.pair}
+
+                </h3>
+
+                <p className="mt-1 text-sm text-slate-400">
+
+                  AI monitored asset
+
+                </p>
+
+              </div>
+
+              <span
+                className={`
+                  rounded-2xl
+                  px-4
+                  py-2
+                  text-sm
+                  font-bold
+
+                  ${
+                    trade.type === "BUY"
+                      ? "bg-emerald-500/10 text-emerald-400"
+                      : "bg-red-500/10 text-red-400"
+                  }
+                `}
+              >
+
+                {trade.type}
+
+              </span>
+
+            </div>
+
+            {/* Grid */}
+            <div className="mt-6 grid grid-cols-2 gap-4">
+
+              <div>
+
+                <p className="text-xs uppercase tracking-widest text-slate-400">
+
+                  Entry
+
+                </p>
+
+                <p className="mt-2 font-bold text-white">
+
+                  {trade.entry}
+
+                </p>
+
+              </div>
+
+              <div>
+
+                <p className="text-xs uppercase tracking-widest text-slate-400">
+
+                  Current
+
+                </p>
+
+                <p className="mt-2 font-bold text-white">
+
+                  {trade.current}
+
+                </p>
+
+              </div>
+
+              <div>
+
+                <p className="text-xs uppercase tracking-widest text-slate-400">
+
+                  P&L
+
+                </p>
+
+                <p
+                  className={`
+                    mt-2 font-bold
+
+                    ${
+                      trade.pnl.includes("+")
+                        ? "text-emerald-400"
+                        : "text-red-400"
+                    }
+                  `}
+                >
+
+                  {trade.pnl}
+
+                </p>
+
+              </div>
+
+              <div>
+
+                <p className="text-xs uppercase tracking-widest text-slate-400">
+
+                  Status
+
+                </p>
+
+                <p className="mt-2 font-bold text-white">
+
+                  {trade.status}
+
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        ))}
 
       </div>
 

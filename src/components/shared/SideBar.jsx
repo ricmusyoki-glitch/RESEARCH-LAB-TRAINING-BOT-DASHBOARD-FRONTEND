@@ -1,150 +1,261 @@
+import { NavLink } from "react-router-dom";
 import {
-  FaChartPie,
-  FaSignal,
-  FaFlask,
-  FaChartLine,
-  FaRobot,
-  FaCog,
-  FaShieldAlt,
-  FaFileAlt,
-  FaBrain,
-  FaVial,
-} from "react-icons/fa";
+  LayoutDashboard,
+  Radio,
+  CandlestickChart,
+  BrainCircuit,
+  BarChart3,
+  ShieldCheck,
+  FlaskConical,
+  FileText,
+  Settings,
+  Menu,
+  X,
+} from "lucide-react";
 
-import { Link, useLocation } from "react-router-dom";
+const navItems = [
+  {
+    name: "Dashboard",
+    path: "/",
+    icon: LayoutDashboard,
+  },
 
-function Sidebar() {
+  {
+    name: "Live Signals",
+    path: "/signals",
+    icon: Radio,
+  },
 
-  const location = useLocation();
+  {
+    name: "Paper Trading",
+    path: "/paper-trading",
+    icon: CandlestickChart,
+  },
 
-  const navLinkClass = (path) =>
-    `flex items-center gap-3 p-3 rounded-xl transition ${
-      location.pathname === path
-        ? "bg-blue-600 text-white"
-        : "text-gray-400 hover:text-white hover:bg-[#111827]"
-    }`;
+  {
+    name: "Strategies",
+    path: "/strategies",
+    icon: BrainCircuit,
+  },
 
+  {
+    name: "Analytics",
+    path: "/analytics",
+    icon: BarChart3,
+  },
+
+  {
+    name: "Risk Dashboard",
+    path: "/risk-dashboard",
+    icon: ShieldCheck,
+  },
+
+  {
+    name: "Research Lab",
+    path: "/research-lab",
+    icon: FlaskConical,
+  },
+
+  {
+    name: "Reports",
+    path: "/reports",
+    icon: FileText,
+  },
+
+  {
+    name: "Settings",
+    path: "/settings",
+    icon: Settings,
+  },
+];
+
+function Sidebar({ sidebarOpen, setSidebarOpen }) {
   return (
-    <div className="w-64 min-h-screen bg-[#050816] border-r border-gray-800 p-5">
+    <>
+      {/* Mobile Overlay */}
+      {sidebarOpen && (
+        <div
+          className="
+            fixed
+            inset-0
+            z-40
+            bg-black/60
+            backdrop-blur-sm
+            xl:hidden
+          "
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
 
-      {/* Logo */}
-      <div className="mb-10">
+      {/* Sidebar */}
+      <aside
+        className={`
+          fixed
+          left-0
+          top-0
+          z-50
+          flex
+          h-screen
+          w-72
+          flex-col
+          border-r
+          border-white/10
+          bg-slate-950/90
+          backdrop-blur-xl
+          transition-transform
+          duration-300
 
-        <h1 className="text-2xl font-bold text-white">
-          Rick Research Lab
-        </h1>
+          ${
+            sidebarOpen
+              ? "translate-x-0"
+              : "-translate-x-full"
+          }
 
-        <p className="text-gray-400 text-sm mt-1">
-          Trading Intelligence
-        </p>
+          xl:translate-x-0
+        `}
+      >
 
-      </div>
+        {/* Purple Glow */}
+        <div
+          className="
+            absolute
+            -top-20
+            -left-20
+            h-72
+            w-72
+            rounded-full
+            bg-purple-500/20
+            blur-3xl
+          "
+        />
 
-      {/* Navigation */}
-      <div className="flex flex-col gap-2">
-
-        {/* Dashboard */}
-        <Link
-          to="/"
-          className={navLinkClass("/")}
+        {/* Header */}
+        <div
+          className="
+            relative
+            z-10
+            flex
+            items-center
+            justify-between
+            border-b
+            border-white/10
+            px-6
+            py-6
+          "
         >
-          <FaChartPie />
-          <span>Dashboard</span>
-        </Link>
 
-        {/* Live Signals */}
-        <Link
-          to="/signals"
-          className={navLinkClass("/signals")}
+          {/* Logo */}
+          <div>
+
+            <h1
+              className="
+                text-2xl
+                font-black
+                tracking-tight
+                text-white
+              "
+            >
+              Rick Research
+            </h1>
+
+            <p
+              className="
+                mt-1
+                text-sm
+                text-slate-400
+              "
+            >
+              Institutional AI Trading
+            </p>
+
+          </div>
+
+          {/* Close Button */}
+          <button
+            onClick={() => setSidebarOpen(false)}
+            className="
+              rounded-xl
+              border
+              border-white/10
+              bg-slate-800/80
+              p-2
+              text-slate-300
+              xl:hidden
+            "
+          >
+
+            <X size={20} />
+
+          </button>
+
+        </div>
+
+        {/* Navigation */}
+        <nav
+          className="
+            relative
+            z-10
+            flex-1
+            space-y-2
+            overflow-y-auto
+            px-4
+            py-6
+          "
         >
-          <FaSignal />
-          <span>Live Signals</span>
-        </Link>
 
-        {/* Paper Trading */}
-        <Link
-          to="/paper-trading"
-          className={navLinkClass("/paper-trading")}
-        >
-          <FaChartLine />
-          <span>Paper Trading</span>
-        </Link>
+          {navItems.map((item) => {
 
-        {/* Strategies */}
-        <Link
-          to="/strategies"
-          className={navLinkClass("/strategies")}
-        >
-          <FaBrain />
-          <span>Strategies</span>
-        </Link>
+            const Icon = item.icon;
 
-        {/* Backtesting */}
-        <Link
-          to="/backtesting"
-          className={navLinkClass("/backtesting")}
-        >
-          <FaVial />
-          <span>Backtesting</span>
-        </Link>
+            return (
+              <NavLink
+                key={item.name}
+                to={item.path}
+                onClick={() => setSidebarOpen(false)}
+                className={({ isActive }) =>
+                  `
+                    flex
+                    items-center
+                    gap-4
+                    rounded-2xl
+                    px-4
+                    py-4
+                    text-sm
+                    font-medium
+                    transition-all
+                    duration-300
 
-        {/* Research Lab */}
-        <Link
-          to="/research"
-          className={navLinkClass("/research")}
-        >
-          <FaFlask />
-          <span>Research Lab</span>
-        </Link>
+                    ${
+                      isActive
+                        ? `
+                          border
+                          border-purple-400/20
+                          bg-purple-500/10
+                          text-white
+                          shadow-lg
+                        `
+                        : `
+                          text-slate-400
+                          hover:bg-slate-800/80
+                          hover:text-white
+                        `
+                    }
+                  `
+                }
+              >
 
-        {/* Analytics */}
-        <Link
-          to="/analytics"
-          className={navLinkClass("/analytics")}
-        >
-          <FaChartPie />
-          <span>Analytics</span>
-        </Link>
+                <Icon size={20} />
 
-        {/* Risk Dashboard */}
-        <Link
-          to="/risk-dashboard"
-          className={navLinkClass("/risk-dashboard")}
-        >
-          <FaShieldAlt />
-          <span>Risk Dashboard</span>
-        </Link>
+                <span>{item.name}</span>
 
-        {/* Reports */}
-        <Link
-          to="/reports"
-          className={navLinkClass("/reports")}
-        >
-          <FaFileAlt />
-          <span>Reports</span>
-        </Link>
+              </NavLink>
+            );
+          })}
 
-        {/* AI Insights */}
-        <Link
-          to="/ai-insights"
-          className={navLinkClass("/ai-insights")}
-        >
-          <FaRobot />
-          <span>AI Insights</span>
-        </Link>
+        </nav>
 
-        {/* Settings */}
-        <Link
-          to="/settings"
-          className={navLinkClass("/settings")}
-        >
-          <FaCog />
-          <span>Settings</span>
-        </Link>
-
-      </div>
-
-    </div>
+      </aside>
+    </>
   );
 }
 
