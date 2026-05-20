@@ -1,38 +1,43 @@
 import MainLayout from "../layouts/MainLayout";
-import Sidebar from "../components/shared/SideBar";
+
 import Navbar from "../components/shared/Navbar";
 
 import EquityCurveChart from "../components/analytics/EquityCurveChart";
 import StrategyComparison from "../components/analytics/StrategyComparison";
-import PortfolioAllocation from "../components/analytics/PortfolioAllocation";
+import SessionPerformancePanel from "../components/analytics/SessionPerformancePanel";
+import AnalyticsInsightsPanel from "../components/analytics/AnalyticsInsightsPanel";
 
 function Analytics() {
   return (
     <MainLayout>
 
-      <Sidebar />
+      <div className="min-h-screen bg-slate-950">
 
-      <div className="flex-1 bg-[#0B1120] p-6 overflow-y-auto">
-
+        {/* Navbar */}
         <Navbar />
 
-        {/* Top Analytics Grid */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-5 mb-8">
+        {/* Analytics Content */}
+        <div
+          className="
+            space-y-8
 
-          <div className="xl:col-span-2">
-            <EquityCurveChart />
-          </div>
+            p-4
+            md:p-6
+            xl:p-8
+          "
+        >
 
-          <div>
-            <PortfolioAllocation />
-          </div>
+          {/* Equity Curve Intelligence */}
+          <EquityCurveChart />
 
-        </div>
-
-        {/* Strategy Comparison */}
-        <div>
-
+          {/* Strategy Comparison */}
           <StrategyComparison />
+
+          {/* Session Intelligence */}
+          <SessionPerformancePanel />
+
+          {/* AI Analytics Insights */}
+          <AnalyticsInsightsPanel />
 
         </div>
 

@@ -1,21 +1,29 @@
 const strategies = [
   {
-    name: "Momentum Breakout",
-    roi: "+24.5%",
-    roiColor: "text-green-400",
-    note: "Best performing strategy this month.",
+    name: "Quantum Momentum",
+    winRate: "72%",
+    drawdown: "5.2%",
+    rr: "1:3.4",
+    profit: "+$24.8K",
+    status: "Optimized",
   },
+
   {
-    name: "Trend Continuation",
-    roi: "+18.1%",
-    roiColor: "text-blue-400",
-    note: "Stable profitability with low drawdown.",
+    name: "Liquidity Sweep AI",
+    winRate: "68%",
+    drawdown: "4.1%",
+    rr: "1:2.9",
+    profit: "+$18.2K",
+    status: "Learning",
   },
+
   {
-    name: "Mean Reversion",
-    roi: "-3.7%",
-    roiColor: "text-red-400",
-    note: "Underperforming during volatile market conditions.",
+    name: "Volatility Breakout",
+    winRate: "74%",
+    drawdown: "6.0%",
+    rr: "1:4.1",
+    profit: "+$31.4K",
+    status: "High Performance",
   },
 ];
 
@@ -23,48 +31,501 @@ function StrategyComparison() {
   return (
     <div
       className="
-        relative overflow-hidden
-        rounded-[32px]
-        border border-white/[0.08]
-        bg-white/[0.03]
-        backdrop-blur-2xl
-        p-7
-        shadow-[0_8px_32px_rgba(0,0,0,0.37)]
+        relative
+        overflow-hidden
+
+        rounded-3xl
+
+        border
+        border-white/10
+
+        bg-slate-900/80
+
+        p-5
+        md:p-6
+        xl:p-7
+
+        backdrop-blur-xl
+        shadow-2xl
       "
     >
 
-      <div className="absolute bottom-[-80px] right-[-80px] w-[220px] h-[220px] bg-purple-500/10 rounded-full blur-3xl"></div>
+      {/* Glow */}
+      <div
+        className="
+          absolute
+          -top-20
+          -left-20
 
-      <div className="relative z-10 flex items-center justify-between mb-8">
+          h-72
+          w-72
+
+          rounded-full
+
+          bg-purple-500/20
+
+          blur-3xl
+        "
+      />
+
+      {/* Header */}
+      <div
+        className="
+          relative
+          z-10
+
+          flex
+          flex-col
+          gap-4
+
+          md:flex-row
+          md:items-start
+          md:justify-between
+        "
+      >
 
         <div>
-          <h2 className="text-white text-2xl font-bold tracking-tight">Strategy Comparison</h2>
-          <p className="text-gray-400 text-sm mt-1">AI-ranked strategy performance</p>
+
+          <p
+            className="
+              text-sm
+              uppercase
+              tracking-[0.3em]
+
+              text-purple-400
+            "
+          >
+            AI Strategy Research
+          </p>
+
+          <h2
+            className="
+              mt-4
+
+              text-4xl
+              md:text-5xl
+
+              font-black
+              tracking-tight
+
+              text-white
+            "
+          >
+            Strategy Comparison
+          </h2>
+
+          <p
+            className="
+              mt-5
+
+              max-w-3xl
+
+              text-sm
+              md:text-base
+
+              leading-7
+
+              text-slate-400
+            "
+          >
+            Compare AI-generated forex strategies
+            using institutional performance metrics,
+            execution intelligence, and machine
+            learning optimization analytics.
+          </p>
+
+        </div>
+
+        {/* AI Status */}
+        <div
+          className="
+            flex
+            items-center
+            gap-3
+
+            self-start
+
+            rounded-full
+
+            border
+            border-cyan-400/20
+
+            bg-cyan-500/10
+
+            px-4
+            py-2
+          "
+        >
+
+          <div
+            className="
+              h-2
+              w-2
+              rounded-full
+
+              bg-cyan-400
+
+              animate-pulse
+            "
+          />
+
+          <p
+            className="
+              text-sm
+              font-medium
+
+              text-cyan-400
+            "
+          >
+            ML Comparison Active
+          </p>
+
         </div>
 
       </div>
 
-      <div className="space-y-4 relative z-10">
+      {/* Desktop Table */}
+      <div
+        className="
+          relative
+          z-10
 
-        {strategies.map((s, index) => (
+          mt-10
+
+          hidden
+          overflow-x-auto
+
+          xl:block
+        "
+      >
+
+        <table
+          className="
+            w-full
+            border-separate
+            border-spacing-y-4
+          "
+        >
+
+          <thead>
+
+            <tr>
+
+              <th className="px-4 text-left text-xs uppercase tracking-widest text-slate-400">
+                Strategy
+              </th>
+
+              <th className="px-4 text-left text-xs uppercase tracking-widest text-slate-400">
+                Win Rate
+              </th>
+
+              <th className="px-4 text-left text-xs uppercase tracking-widest text-slate-400">
+                Drawdown
+              </th>
+
+              <th className="px-4 text-left text-xs uppercase tracking-widest text-slate-400">
+                Avg RR
+              </th>
+
+              <th className="px-4 text-left text-xs uppercase tracking-widest text-slate-400">
+                Profit
+              </th>
+
+              <th className="px-4 text-left text-xs uppercase tracking-widest text-slate-400">
+                Status
+              </th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            {strategies.map((strategy, index) => (
+
+              <tr
+                key={index}
+                className="
+                  rounded-3xl
+
+                  border
+                  border-white/10
+
+                  bg-slate-800/60
+
+                  transition-all
+                  duration-500
+
+                  hover:border-purple-400/30
+                  hover:bg-slate-800/80
+                "
+              >
+
+                {/* Strategy */}
+                <td className="rounded-l-3xl px-4 py-5">
+
+                  <div>
+
+                    <p className="font-bold text-white">
+
+                      {strategy.name}
+
+                    </p>
+
+                    <p className="mt-1 text-sm text-slate-400">
+
+                      AI Forex Model
+
+                    </p>
+
+                  </div>
+
+                </td>
+
+                {/* Win Rate */}
+                <td className="px-4 py-5 font-bold text-emerald-400">
+
+                  {strategy.winRate}
+
+                </td>
+
+                {/* Drawdown */}
+                <td className="px-4 py-5 font-bold text-red-400">
+
+                  {strategy.drawdown}
+
+                </td>
+
+                {/* RR */}
+                <td className="px-4 py-5 font-bold text-cyan-400">
+
+                  {strategy.rr}
+
+                </td>
+
+                {/* Profit */}
+                <td className="px-4 py-5 font-bold text-purple-400">
+
+                  {strategy.profit}
+
+                </td>
+
+                {/* Status */}
+                <td className="rounded-r-3xl px-4 py-5">
+
+                  <div
+                    className="
+                      inline-flex
+                      items-center
+                      gap-2
+
+                      rounded-full
+
+                      border
+                      border-cyan-400/20
+
+                      bg-cyan-500/10
+
+                      px-4
+                      py-2
+                    "
+                  >
+
+                    <div
+                      className="
+                        h-2
+                        w-2
+                        rounded-full
+
+                        bg-cyan-400
+
+                        animate-pulse
+                      "
+                    />
+
+                    <p
+                      className="
+                        text-sm
+                        font-medium
+
+                        text-cyan-400
+                      "
+                    >
+                      {strategy.status}
+                    </p>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            ))}
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      {/* Mobile Cards */}
+      <div
+        className="
+          relative
+          z-10
+
+          mt-10
+
+          space-y-5
+
+          xl:hidden
+        "
+      >
+
+        {strategies.map((strategy, index) => (
+
           <div
             key={index}
             className="
-              rounded-3xl border border-white/[0.05]
-              bg-white/[0.03] p-5
-              transition-all duration-500
-              hover:border-white/20 hover:scale-[1.01]
+              rounded-3xl
+
+              border
+              border-white/10
+
+              bg-slate-800/60
+
+              p-5
             "
           >
 
-            <div className="flex items-center justify-between mb-2">
-              <p className="text-white font-bold">{s.name}</p>
-              <p className={`font-bold ${s.roiColor}`}>{s.roi}</p>
+            {/* Top */}
+            <div className="flex items-start justify-between gap-4">
+
+              <div>
+
+                <h3
+                  className="
+                    text-2xl
+                    font-black
+                    text-white
+                  "
+                >
+                  {strategy.name}
+                </h3>
+
+                <p
+                  className="
+                    mt-2
+
+                    text-sm
+
+                    text-slate-400
+                  "
+                >
+                  AI Forex Strategy
+                </p>
+
+              </div>
+
+              <div
+                className="
+                  rounded-full
+
+                  bg-cyan-500/10
+
+                  px-4
+                  py-2
+
+                  text-sm
+                  font-medium
+
+                  text-cyan-400
+                "
+              >
+                {strategy.status}
+              </div>
+
             </div>
 
-            <p className="text-gray-400 text-sm">{s.note}</p>
+            {/* Metrics */}
+            <div
+              className="
+                mt-8
+
+                grid
+                grid-cols-2
+                gap-5
+              "
+            >
+
+              <div>
+
+                <p className="text-xs uppercase tracking-widest text-slate-400">
+
+                  Win Rate
+
+                </p>
+
+                <p className="mt-2 font-bold text-emerald-400">
+
+                  {strategy.winRate}
+
+                </p>
+
+              </div>
+
+              <div>
+
+                <p className="text-xs uppercase tracking-widest text-slate-400">
+
+                  Drawdown
+
+                </p>
+
+                <p className="mt-2 font-bold text-red-400">
+
+                  {strategy.drawdown}
+
+                </p>
+
+              </div>
+
+              <div>
+
+                <p className="text-xs uppercase tracking-widest text-slate-400">
+
+                  Avg RR
+
+                </p>
+
+                <p className="mt-2 font-bold text-cyan-400">
+
+                  {strategy.rr}
+
+                </p>
+
+              </div>
+
+              <div>
+
+                <p className="text-xs uppercase tracking-widest text-slate-400">
+
+                  Profit
+
+                </p>
+
+                <p className="mt-2 font-bold text-purple-400">
+
+                  {strategy.profit}
+
+                </p>
+
+              </div>
+
+            </div>
 
           </div>
+
         ))}
 
       </div>

@@ -1,10 +1,4 @@
-function EquityCurveChart() {
-  
-  const chartData = [
-    20, 35, 28, 46, 58, 66,
-    74, 68, 82, 95, 110, 124,
-  ];
-
+function AnalyticsInsightsPanel() {
   return (
     <div
       className="
@@ -27,7 +21,7 @@ function EquityCurveChart() {
       "
     >
 
-      {/* Purple Glow */}
+      {/* Glow */}
       <div
         className="
           absolute
@@ -72,7 +66,7 @@ function EquityCurveChart() {
               text-purple-400
             "
           >
-            AI Market Intelligence
+            AI Intelligence Insights
           </p>
 
           <h2
@@ -88,7 +82,7 @@ function EquityCurveChart() {
               text-white
             "
           >
-            Performance Analytics
+            Analytics Intelligence
           </h2>
 
           <p
@@ -105,10 +99,11 @@ function EquityCurveChart() {
               text-slate-400
             "
           >
-            AI-driven forex performance analysis
-            tracking execution quality, market
+            AI-generated market intelligence and
+            machine learning observations derived
+            from forex execution behavior, volatility
             adaptation, and institutional strategy
-            intelligence across live trading activity.
+            performance analysis.
           </p>
 
         </div>
@@ -125,9 +120,9 @@ function EquityCurveChart() {
             rounded-full
 
             border
-            border-emerald-400/20
+            border-cyan-400/20
 
-            bg-emerald-500/10
+            bg-cyan-500/10
 
             px-4
             py-2
@@ -140,7 +135,7 @@ function EquityCurveChart() {
               w-2
               rounded-full
 
-              bg-emerald-400
+              bg-cyan-400
 
               animate-pulse
             "
@@ -151,121 +146,17 @@ function EquityCurveChart() {
               text-sm
               font-medium
 
-              text-emerald-400
+              text-cyan-400
             "
           >
-            AI Learning Active
+            AI Analysis Active
           </p>
 
         </div>
 
       </div>
 
-      {/* Chart Section */}
-      <div
-        className="
-          relative
-          z-10
-
-          mt-10
-        "
-      >
-
-        {/* Chart Labels */}
-        <div
-          className="
-            mb-6
-
-            flex
-            items-center
-            justify-between
-          "
-        >
-
-          <p
-            className="
-              text-sm
-              font-medium
-
-              text-slate-400
-            "
-          >
-            Equity Curve Intelligence
-          </p>
-
-          <p
-            className="
-              text-sm
-              font-semibold
-
-              text-emerald-400
-            "
-          >
-            +84.2% Growth
-          </p>
-
-        </div>
-
-        {/* Chart */}
-        <div
-          className="
-            flex
-            h-72
-            items-end
-            justify-between
-            gap-2
-          "
-        >
-
-          {chartData.map((value, index) => (
-
-            <div
-              key={index}
-              className="
-                relative
-
-                flex-1
-
-                rounded-t-3xl
-
-                bg-gradient-to-t
-                from-purple-500
-                via-cyan-400
-                to-emerald-400
-
-                transition-all
-                duration-500
-
-                hover:scale-105
-              "
-              style={{
-                height: `${value * 2}px`,
-              }}
-            >
-
-              {/* Glow */}
-              <div
-                className="
-                  absolute
-                  inset-0
-
-                  rounded-t-3xl
-
-                  bg-white/10
-
-                  blur-md
-                "
-              />
-
-            </div>
-
-          ))}
-
-        </div>
-
-      </div>
-
-      {/* Bottom Metrics */}
+      {/* Insights Grid */}
       <div
         className="
           relative
@@ -275,135 +166,190 @@ function EquityCurveChart() {
 
           grid
           grid-cols-1
-          gap-5
+          gap-6
 
-          md:grid-cols-3
+          xl:grid-cols-2
         "
       >
 
-        {/* Confidence */}
+        {/* Insight 1 */}
         <div
           className="
-            rounded-2xl
-
-            border
-            border-cyan-400/10
-
-            bg-cyan-500/5
-
-            p-5
-          "
-        >
-
-          <p
-            className="
-              text-xs
-              uppercase
-              tracking-widest
-
-              text-slate-400
-            "
-          >
-            AI Confidence
-          </p>
-
-          <h3
-            className="
-              mt-3
-
-              text-3xl
-
-              font-black
-
-              text-cyan-400
-            "
-          >
-            94%
-          </h3>
-
-        </div>
-
-        {/* Precision */}
-        <div
-          className="
-            rounded-2xl
-
-            border
-            border-purple-400/10
-
-            bg-purple-500/5
-
-            p-5
-          "
-        >
-
-          <p
-            className="
-              text-xs
-              uppercase
-              tracking-widest
-
-              text-slate-400
-            "
-          >
-            Signal Precision
-          </p>
-
-          <h3
-            className="
-              mt-3
-
-              text-3xl
-
-              font-black
-
-              text-purple-400
-            "
-          >
-            91%
-          </h3>
-
-        </div>
-
-        {/* Adaptability */}
-        <div
-          className="
-            rounded-2xl
+            rounded-3xl
 
             border
             border-emerald-400/10
 
             bg-emerald-500/5
 
-            p-5
+            p-6
           "
         >
 
           <p
             className="
-              text-xs
-              uppercase
-              tracking-widest
-
-              text-slate-400
-            "
-          >
-            Market Adaptability
-          </p>
-
-          <h3
-            className="
-              mt-3
-
-              text-3xl
-
-              font-black
+              text-sm
+              font-semibold
 
               text-emerald-400
             "
           >
-            8.9/10
-          </h3>
+            Performance Observation
+          </p>
+
+          <p
+            className="
+              mt-5
+
+              text-sm
+              md:text-base
+
+              leading-8
+
+              text-slate-300
+            "
+          >
+            AI execution quality improved significantly
+            during London and New York overlap sessions,
+            where volatility expansion and liquidity
+            conditions increased directional movement
+            efficiency.
+          </p>
+
+        </div>
+
+        {/* Insight 2 */}
+        <div
+          className="
+            rounded-3xl
+
+            border
+            border-cyan-400/10
+
+            bg-cyan-500/5
+
+            p-6
+          "
+        >
+
+          <p
+            className="
+              text-sm
+              font-semibold
+
+              text-cyan-400
+            "
+          >
+            Machine Learning Adaptation
+          </p>
+
+          <p
+            className="
+              mt-5
+
+              text-sm
+              md:text-base
+
+              leading-8
+
+              text-slate-300
+            "
+          >
+            Reinforcement learning models identified
+            improved entry precision after liquidity
+            sweep confirmations, reducing premature
+            execution during ranging market conditions.
+          </p>
+
+        </div>
+
+        {/* Insight 3 */}
+        <div
+          className="
+            rounded-3xl
+
+            border
+            border-purple-400/10
+
+            bg-purple-500/5
+
+            p-6
+          "
+        >
+
+          <p
+            className="
+              text-sm
+              font-semibold
+
+              text-purple-400
+            "
+          >
+            Volatility Intelligence
+          </p>
+
+          <p
+            className="
+              mt-5
+
+              text-sm
+              md:text-base
+
+              leading-8
+
+              text-slate-300
+            "
+          >
+            AI confidence levels increase during
+            institutional volatility expansion periods,
+            especially after high-impact forex liquidity
+            injections during major session openings.
+          </p>
+
+        </div>
+
+        {/* Insight 4 */}
+        <div
+          className="
+            rounded-3xl
+
+            border
+            border-orange-400/10
+
+            bg-orange-500/5
+
+            p-6
+          "
+        >
+
+          <p
+            className="
+              text-sm
+              font-semibold
+
+              text-orange-400
+            "
+          >
+            Optimization Recommendation
+          </p>
+
+          <p
+            className="
+              mt-5
+
+              text-sm
+              md:text-base
+
+              leading-8
+
+              text-slate-300
+            "
+          >
+            AI models recommend increasing execution
+            weighting toward high-confidence M15
+            continuation setups while reducing exposure
+            during low-volatility consolidation periods.
+          </p>
 
         </div>
 
@@ -413,4 +359,4 @@ function EquityCurveChart() {
   );
 }
 
-export default EquityCurveChart;
+export default AnalyticsInsightsPanel;
