@@ -155,7 +155,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                 text-white
               "
             >
-              Rick Research
+              Ric's Research lab
             </h1>
 
             <p
@@ -165,7 +165,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
                 text-slate-400
               "
             >
-              Institutional AI Trading
+              Institutional trading and Learning platform 
             </p>
 
           </div>
