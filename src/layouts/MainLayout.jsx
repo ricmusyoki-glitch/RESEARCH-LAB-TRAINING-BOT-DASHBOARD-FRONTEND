@@ -66,7 +66,7 @@ function MainLayout({ children }) {
                 text-white
               "
             >
-              Rick Research
+              Ric's Research Lab
             </h1>
 
             <p
@@ -75,7 +75,7 @@ function MainLayout({ children }) {
                 text-slate-400
               "
             >
-              AI Trading Platform
+              Ric's Trading and Learning Platform
             </p>
 
           </div>
