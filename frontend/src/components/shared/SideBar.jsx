@@ -10,6 +10,7 @@ import {
   FileText,
   Settings,
   Menu,
+  Brain,
   X,
 } from "lucide-react";
 
@@ -33,6 +34,18 @@ const navItems = [
   },
 
   {
+  name: "History",
+  path: "/history",
+  icon: FlaskConical,
+  },
+
+  {
+  name: "AI Insights",
+  path: "/ai-insights",
+  icon: Brain,
+  },
+
+  { 
     name: "Strategies",
     path: "/strategies",
     icon: BrainCircuit,

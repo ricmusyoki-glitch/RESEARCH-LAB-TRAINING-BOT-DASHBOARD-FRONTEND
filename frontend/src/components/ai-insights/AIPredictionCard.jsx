@@ -1,56 +1,183 @@
-function AIPredictionCard({ asset, prediction, confidence, direction }) {
-  const bullish = direction === "Bullish";
-
+function AIPredictionCard() {
   return (
     <div
       className="
-        relative overflow-hidden
-        rounded-[32px]
-        border border-white/[0.08]
-        bg-white/[0.03]
-        backdrop-blur-2xl
-        p-7
-        shadow-[0_8px_32px_rgba(0,0,0,0.37)]
-        transition-all duration-500
-        hover:scale-[1.02] hover:border-white/20
+        relative
+        overflow-hidden
+
+        rounded-3xl
+
+        border
+        border-white/10
+
+        bg-slate-900/80
+
+        p-6
+        xl:p-8
+
+        backdrop-blur-xl
       "
     >
+      <div
+        className="
+          absolute
+          -right-24
+          -top-24
 
-      <div className={`absolute top-[-40px] right-[-40px] w-[140px] h-[140px] rounded-full blur-3xl ${bullish ? "bg-green-500/15" : "bg-red-500/15"}`}></div>
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+          h-96
+          w-96
 
-      <div className="relative z-10 flex items-center justify-between mb-6">
+          rounded-full
 
-        <h2 className="text-white text-2xl font-bold tracking-tight">{asset}</h2>
+          bg-purple-500/20
 
-        <span
-          className={`px-4 py-2 rounded-2xl text-sm font-bold ${
-            bullish ? "bg-green-500/20 text-green-400" : "bg-red-500/20 text-red-400"
-          }`}
-        >
-          {direction}
-        </span>
-
-      </div>
-
-      <p className="text-gray-300 text-sm leading-relaxed mb-6 relative z-10">{prediction}</p>
+          blur-3xl
+        "
+      />
 
       <div className="relative z-10">
+        <p
+          className="
+            text-sm
+            uppercase
+            tracking-[0.3em]
 
-        <div className="flex justify-between mb-3">
-          <p className="text-gray-400 text-sm uppercase tracking-wider">AI Confidence</p>
-          <p className="text-blue-400 text-sm font-bold">{confidence}%</p>
-        </div>
+            text-purple-400
+          "
+        >
+          AI Prediction Engine
+        </p>
 
-        <div className="w-full bg-white/[0.06] rounded-full h-2">
+        <h2
+          className="
+            mt-4
+
+            text-4xl
+            md:text-5xl
+
+            font-black
+
+            text-white
+          "
+        >
+          BUY XAUUSD
+        </h2>
+
+        <p
+          className="
+            mt-4
+
+            text-slate-400
+          "
+        >
+          High-probability institutional setup detected.
+        </p>
+
+        <div
+          className="
+            mt-10
+
+            grid
+            gap-5
+
+            grid-cols-1
+            md:grid-cols-3
+          "
+        >
           <div
-            className="bg-blue-500 h-2 rounded-full transition-all duration-700"
-            style={{ width: `${confidence}%` }}
-          ></div>
+            className="
+              rounded-3xl
+
+              border
+              border-white/10
+
+              bg-slate-800/60
+
+              p-5
+            "
+          >
+            <p className="text-slate-400 text-sm">
+              Confidence
+            </p>
+
+            <h3
+              className="
+                mt-3
+
+                text-4xl
+
+                font-black
+
+                text-purple-400
+              "
+            >
+              87%
+            </h3>
+          </div>
+
+          <div
+            className="
+              rounded-3xl
+
+              border
+              border-white/10
+
+              bg-slate-800/60
+
+              p-5
+            "
+          >
+            <p className="text-slate-400 text-sm">
+              Risk Level
+            </p>
+
+            <h3
+              className="
+                mt-3
+
+                text-4xl
+
+                font-black
+
+                text-cyan-400
+              "
+            >
+              Medium
+            </h3>
+          </div>
+
+          <div
+            className="
+              rounded-3xl
+
+              border
+              border-white/10
+
+              bg-slate-800/60
+
+              p-5
+            "
+          >
+            <p className="text-slate-400 text-sm">
+              Expected RR
+            </p>
+
+            <h3
+              className="
+                mt-3
+
+                text-4xl
+
+                font-black
+
+                text-emerald-400
+              "
+            >
+              1:3
+            </h3>
+          </div>
         </div>
-
       </div>
-
     </div>
   );
 }

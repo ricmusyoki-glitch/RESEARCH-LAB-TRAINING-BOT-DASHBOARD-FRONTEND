@@ -9,7 +9,7 @@ import Reports from "./pages/Reports";
 import RiskDashboard from "./pages/RiskDashboard";
 import Settings from "./pages/Settings";
 import AIInsights from "./pages/AIInsights";
-import Backtesting from "./pages/BackTesting";
+import History from "./pages/History";
 import Strategies from "./pages/Strategies";
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
 
         <Route path="/ai-insights" element={<AIInsights />} />
 
-        <Route path="/backtesting" element={<Backtesting />} />
+        <Route path="/history" element={<History />} />
 
         <Route path="/strategies" element={<Strategies />} />
 
