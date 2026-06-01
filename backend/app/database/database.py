@@ -14,3 +14,9 @@ SessionLocal = sessionmaker(
     autoflush=False,
     bind=engine
 ) 
+
+from app.database.base import Base
+from app.models.strategy import Strategy
+
+def create_tables():
+    Base.metadata.create_all(bind=engine) 
