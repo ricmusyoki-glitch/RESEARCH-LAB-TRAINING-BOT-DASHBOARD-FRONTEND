@@ -4,14 +4,16 @@ from sqlalchemy.orm import Session
 from app.database.dependencies import get_db
 from app.schemas.strategy import (
     StrategyCreate,
+    StrategyUpdate,
     StrategyResponse
 )
 from app.services.strategy_service import (
     create_strategy,
     get_strategies,
-    get_strategy_by_id
-
-)
+    get_strategy_by_id,
+    update_strategy,
+    delete_strategy
+) 
 
 router = APIRouter(
     prefix="/strategies",
@@ -43,6 +45,7 @@ def get_strategies_endpoint(
     db: Session = Depends(get_db)
 ):
     return get_strategies(db) 
+
 @router.get(
     "/{strategy_id}",
     response_model=StrategyResponse
@@ -63,3 +66,49 @@ def get_strategy_by_id_endpoint(
         )
 
     return strategy
+
+@router.put(
+    "/{strategy_id}",
+    response_model=StrategyResponse
+)
+def update_strategy_endpoint(
+    strategy_id: int,
+    strategy: StrategyUpdate,
+    db: Session = Depends(get_db)
+):
+    updated_strategy = update_strategy(
+        db=db,
+        strategy_id=strategy_id,
+        name=strategy.name,
+        category=strategy.category,
+        timeframe=strategy.timeframe
+    )
+
+    if not updated_strategy:
+        raise HTTPException(
+            status_code=404,
+            detail="Strategy not found"
+        )
+
+    return updated_strategy 
+
+@router.delete(
+    "/{strategy_id}",
+    response_model=StrategyResponse
+)
+def delete_strategy_endpoint(
+    strategy_id: int,
+    db: Session = Depends(get_db)
+):
+    deleted_strategy = delete_strategy(
+        db,
+        strategy_id
+    )
+
+    if not deleted_strategy:
+        raise HTTPException(
+            status_code=404,
+            detail="Strategy not found"
+        )
+
+    return deleted_strategy

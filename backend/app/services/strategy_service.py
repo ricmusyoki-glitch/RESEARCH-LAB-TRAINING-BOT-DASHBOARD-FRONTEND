@@ -34,3 +34,46 @@ def get_strategy_by_id(
         .filter(Strategy.id == strategy_id)
         .first()
     ) 
+
+def update_strategy(
+    db: Session,
+    strategy_id: int,
+    name: str,
+    category: str,
+    timeframe: str
+):
+    strategy = (
+        db.query(Strategy)
+        .filter(Strategy.id == strategy_id)
+        .first()
+    )
+
+    if not strategy:
+        return None
+
+    strategy.name = name
+    strategy.category = category
+    strategy.timeframe = timeframe
+
+    db.commit()
+    db.refresh(strategy)
+
+    return strategy
+
+def delete_strategy(
+    db: Session,
+    strategy_id: int
+):
+    strategy = (
+        db.query(Strategy)
+        .filter(Strategy.id == strategy_id)
+        .first()
+    )
+
+    if not strategy:
+        return None
+
+    db.delete(strategy)
+    db.commit()
+
+    return strategy
