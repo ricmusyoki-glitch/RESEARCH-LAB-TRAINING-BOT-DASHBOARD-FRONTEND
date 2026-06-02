@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from sqlalchemy import text
-
+from app.api.strategy_routes import router as strategy_router
 from app.database.database import engine
 from app.database.database import create_tables
 from app.models import Strategy 
@@ -8,6 +8,8 @@ from app.models import Strategy
 app = FastAPI(
     title="Rick Research Lab"
 )
+app.include_router(strategy_router)
+
 @app.on_event("startup")
 def startup():
     create_tables() 

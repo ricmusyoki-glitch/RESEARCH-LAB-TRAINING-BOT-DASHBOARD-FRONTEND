@@ -24,3 +24,13 @@ def create_strategy(
 
 def get_strategies(db: Session):
     return db.query(Strategy).all()
+
+def get_strategy_by_id(
+    db: Session,
+    strategy_id: int
+):
+    return (
+        db.query(Strategy)
+        .filter(Strategy.id == strategy_id)
+        .first()
+    ) 

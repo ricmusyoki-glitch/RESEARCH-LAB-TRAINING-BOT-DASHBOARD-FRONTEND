@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.database.dependencies import get_db
@@ -8,7 +8,9 @@ from app.schemas.strategy import (
 )
 from app.services.strategy_service import (
     create_strategy,
-    get_strategies
+    get_strategies,
+    get_strategy_by_id
+
 )
 
 router = APIRouter(
@@ -40,4 +42,24 @@ def create_strategy_endpoint(
 def get_strategies_endpoint(
     db: Session = Depends(get_db)
 ):
-    return get_strategies(db)
+    return get_strategies(db) 
+@router.get(
+    "/{strategy_id}",
+    response_model=StrategyResponse
+)
+def get_strategy_by_id_endpoint(
+    strategy_id: int,
+    db: Session = Depends(get_db)
+):
+    strategy = get_strategy_by_id(
+        db,
+        strategy_id
+    )
+
+    if not strategy:
+        raise HTTPException(
+            status_code=404,
+            detail="Strategy not found"
+        )
+
+    return strategy
