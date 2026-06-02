@@ -111,4 +111,4 @@ def delete_strategy_endpoint(
             detail="Strategy not found"
         )
 
-    return deleted_strategy
+    return deleted_strategy 
