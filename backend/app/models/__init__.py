@@ -5,3 +5,4 @@ from app.models.signal import Signal
 from app.models.paper_trade import PaperTrade
 from app.models.trade_result import TradeResult
 from app.models.strategy_performance import StrategyPerformance
+from app.models.strategy_ranking import StrategyRanking
