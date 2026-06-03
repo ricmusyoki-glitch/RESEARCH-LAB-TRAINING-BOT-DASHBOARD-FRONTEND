@@ -124,4 +124,4 @@ def delete_signal_endpoint(
             detail="Signal not found"
         )
 
-    return deleted_signal
+    return deleted_signal 

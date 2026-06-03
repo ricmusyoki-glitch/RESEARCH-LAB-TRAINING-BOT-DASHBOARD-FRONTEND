@@ -7,11 +7,13 @@ from app.models import (
     Strategy,
     MarketData,
     MarketRegime,
-    Signal
+    Signal,
+    PaperTrade
 ) 
 from app.api.market_data_routes import router as market_data_router
 from app.api.market_regime_routes import router as market_regime_router 
 from app.api.signal_routes import router as signal_router
+from app.api.paper_trade_routes import router as paper_trade_router
 
 app = FastAPI(
     title="Ric Research Lab"
@@ -20,6 +22,7 @@ app.include_router(strategy_router)
 app.include_router(market_data_router) 
 app.include_router(market_regime_router) 
 app.include_router(signal_router) 
+app.include_router(paper_trade_router)
 
 @app.on_event("startup")
 def startup():
