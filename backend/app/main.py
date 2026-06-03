@@ -12,17 +12,18 @@ from app.models import (
     PaperTrade,
     TradeResult,
     StrategyPerformance,
-    StrategyRanking
+    StrategyRanking,
+    MarketSession
 ) 
 
-from app.api.market_data_routes import router as market_data_router
-from app.api.market_regime_routes import router as market_regime_router 
-from app.api.signal_routes import router as signal_router
-from app.api.paper_trade_routes import router as paper_trade_router
-from app.api.trade_result_routes import router as trade_result_router
+from app.api.market_data_routes import (router as market_data_router)
+from app.api.market_regime_routes import (router as market_regime_router )
+from app.api.signal_routes import (router as signal_router)
+from app.api.paper_trade_routes import (router as paper_trade_router)
+from app.api.trade_result_routes import (router as trade_result_router)
 from app.api.strategy_performance_routes import (router as strategy_performance_router)
 from app.api.strategy_ranking_routes import (router as strategy_ranking_router)
-
+from app.api.market_session_routes import (router as market_session_router)
 app = FastAPI(
     title="Ric Research Lab"
 )
@@ -34,6 +35,7 @@ app.include_router(paper_trade_router)
 app.include_router(trade_result_router) 
 app.include_router(strategy_performance_router)
 app.include_router(strategy_ranking_router) 
+app.include_router( market_session_router)
 
 @app.on_event("startup")
 def startup():
