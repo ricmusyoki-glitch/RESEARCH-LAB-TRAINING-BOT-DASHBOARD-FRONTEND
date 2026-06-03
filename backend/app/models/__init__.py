@@ -7,3 +7,4 @@ from app.models.trade_result import TradeResult
 from app.models.strategy_performance import StrategyPerformance
 from app.models.strategy_ranking import StrategyRanking
 from app.models.market_session import MarketSession
+from app.models.economic_event import EconomicEvent
