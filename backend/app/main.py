@@ -14,7 +14,8 @@ from app.models import (
     StrategyPerformance,
     StrategyRanking,
     MarketSession,
-    EconomicEvent
+    EconomicEvent,
+    Prediction
 ) 
 
 from app.api.market_data_routes import (router as market_data_router)
@@ -26,6 +27,7 @@ from app.api.strategy_performance_routes import (router as strategy_performance_
 from app.api.strategy_ranking_routes import (router as strategy_ranking_router)
 from app.api.market_session_routes import (router as market_session_router)
 from app.api.economic_event_routes import (router as economic_event_router)
+from app.api.prediction_routes import (router as prediction_router)
 
 app = FastAPI(
     title="Ric Research Lab"
@@ -40,7 +42,7 @@ app.include_router(strategy_performance_router)
 app.include_router(strategy_ranking_router) 
 app.include_router( market_session_router)
 app.include_router(economic_event_router)
-
+app.include_router(prediction_router) 
 
 @app.on_event("startup")
 def startup():
