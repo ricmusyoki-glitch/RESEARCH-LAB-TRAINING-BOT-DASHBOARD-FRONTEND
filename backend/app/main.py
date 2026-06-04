@@ -17,7 +17,8 @@ from app.models import (
     EconomicEvent,
     Prediction,
     TelegramNotification,
-    PerformanceHistory
+    PerformanceHistory,
+    BrokerConnection
 ) 
 
 from app.api.market_data_routes import (router as market_data_router)
@@ -32,6 +33,7 @@ from app.api.economic_event_routes import (router as economic_event_router)
 from app.api.prediction_routes import (router as prediction_router)
 from app.api.telegram_notification_routes import (router as telegram_notification_router)
 from app.api.performance_history_routes import (router as performance_history_router)
+from app.api.broker_connection_routes import (router as broker_connection_router)
 
 app = FastAPI(
     title="Ric Research Lab"
@@ -44,11 +46,12 @@ app.include_router(paper_trade_router)
 app.include_router(trade_result_router) 
 app.include_router(strategy_performance_router)
 app.include_router(strategy_ranking_router) 
-app.include_router( market_session_router)
+app.include_router(market_session_router)
 app.include_router(economic_event_router)
 app.include_router(prediction_router) 
 app.include_router(telegram_notification_router)
-app.include_router(performance_history_router) 
+app.include_router(performance_history_router)
+app.include_router(broker_connection_router) 
 
 @app.on_event("startup")
 def startup():
