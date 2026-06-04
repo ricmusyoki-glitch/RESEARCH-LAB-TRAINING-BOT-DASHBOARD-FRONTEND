@@ -10,3 +10,4 @@ from app.models.market_session import MarketSession
 from app.models.economic_event import EconomicEvent
 from app.models.prediction import Prediction
 from app.models.telegram_notification import TelegramNotification
+from app.models.performance_history import PerformanceHistory
