@@ -29,9 +29,7 @@ class StrategyPerformanceCreate(BaseModel):
     rank_score: float
 
 
-class StrategyPerformanceResponse(
-    StrategyPerformanceCreate
-):
+class StrategyPerformanceResponse(StrategyPerformanceCreate):
     id: int
 
     class Config:

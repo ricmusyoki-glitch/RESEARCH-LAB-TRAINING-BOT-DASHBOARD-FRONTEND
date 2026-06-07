@@ -17,9 +17,7 @@ class PerformanceHistoryCreate(BaseModel):
     recorded_at: datetime
 
 
-class PerformanceHistoryResponse(
-    PerformanceHistoryCreate
-):
+class PerformanceHistoryResponse(PerformanceHistoryCreate):
     id: int
 
     class Config:

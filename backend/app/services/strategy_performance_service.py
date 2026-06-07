@@ -1,8 +1,6 @@
 from sqlalchemy.orm import Session
 
-from app.models.strategy_performance import (
-    StrategyPerformance
-)
+from app.models.strategy_performance import StrategyPerformance
 
 
 def create_strategy_performance(
@@ -19,7 +17,7 @@ def create_strategy_performance(
     max_drawdown: float,
     expectancy: float,
     average_risk_reward: float,
-    rank_score: float
+    rank_score: float,
 ):
     performance = StrategyPerformance(
         strategy_name=strategy_name,
@@ -34,7 +32,7 @@ def create_strategy_performance(
         max_drawdown=max_drawdown,
         expectancy=expectancy,
         average_risk_reward=average_risk_reward,
-        rank_score=rank_score
+        rank_score=rank_score,
     )
 
     db.add(performance)
@@ -44,24 +42,14 @@ def create_strategy_performance(
     return performance
 
 
-def get_strategy_performances(
-    db: Session
-):
-    return (
-        db.query(
-            StrategyPerformance
-        ).all()
-    )
+def get_strategy_performances(db: Session):
+    return db.query(StrategyPerformance).all()
 
-def get_strategy_performance_by_id(
-    db: Session,
-    performance_id: int
-):
+
+def get_strategy_performance_by_id(db: Session, performance_id: int):
     return (
         db.query(StrategyPerformance)
-        .filter(
-            StrategyPerformance.id == performance_id
-        )
+        .filter(StrategyPerformance.id == performance_id)
         .first()
     )
 
@@ -81,13 +69,11 @@ def update_strategy_performance(
     max_drawdown: float,
     expectancy: float,
     average_risk_reward: float,
-    rank_score: float
+    rank_score: float,
 ):
     performance = (
         db.query(StrategyPerformance)
-        .filter(
-            StrategyPerformance.id == performance_id
-        )
+        .filter(StrategyPerformance.id == performance_id)
         .first()
     )
 
@@ -114,15 +100,10 @@ def update_strategy_performance(
     return performance
 
 
-def delete_strategy_performance(
-    db: Session,
-    performance_id: int
-):
+def delete_strategy_performance(db: Session, performance_id: int):
     performance = (
         db.query(StrategyPerformance)
-        .filter(
-            StrategyPerformance.id == performance_id
-        )
+        .filter(StrategyPerformance.id == performance_id)
         .first()
     )
 

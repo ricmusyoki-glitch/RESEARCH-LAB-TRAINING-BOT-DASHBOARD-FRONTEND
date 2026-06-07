@@ -3,17 +3,8 @@ from sqlalchemy.orm import Session
 from app.models.strategy import Strategy
 
 
-def create_strategy(
-    db: Session,
-    name: str,
-    category: str,
-    timeframe: str
-):
-    strategy = Strategy(
-        name=name,
-        category=category,
-        timeframe=timeframe
-    )
+def create_strategy(db: Session, name: str, category: str, timeframe: str):
+    strategy = Strategy(name=name, category=category, timeframe=timeframe)
 
     db.add(strategy)
     db.commit()
@@ -25,28 +16,15 @@ def create_strategy(
 def get_strategies(db: Session):
     return db.query(Strategy).all()
 
-def get_strategy_by_id(
-    db: Session,
-    strategy_id: int
-):
-    return (
-        db.query(Strategy)
-        .filter(Strategy.id == strategy_id)
-        .first()
-    ) 
+
+def get_strategy_by_id(db: Session, strategy_id: int):
+    return db.query(Strategy).filter(Strategy.id == strategy_id).first()
+
 
 def update_strategy(
-    db: Session,
-    strategy_id: int,
-    name: str,
-    category: str,
-    timeframe: str
+    db: Session, strategy_id: int, name: str, category: str, timeframe: str
 ):
-    strategy = (
-        db.query(Strategy)
-        .filter(Strategy.id == strategy_id)
-        .first()
-    )
+    strategy = db.query(Strategy).filter(Strategy.id == strategy_id).first()
 
     if not strategy:
         return None
@@ -60,15 +38,9 @@ def update_strategy(
 
     return strategy
 
-def delete_strategy(
-    db: Session,
-    strategy_id: int
-):
-    strategy = (
-        db.query(Strategy)
-        .filter(Strategy.id == strategy_id)
-        .first()
-    )
+
+def delete_strategy(db: Session, strategy_id: int):
+    strategy = db.query(Strategy).filter(Strategy.id == strategy_id).first()
 
     if not strategy:
         return None

@@ -1,8 +1,6 @@
 from sqlalchemy.orm import Session
 
-from app.models.market_session import (
-    MarketSession
-)
+from app.models.market_session import MarketSession
 
 
 def create_market_session(
@@ -11,14 +9,14 @@ def create_market_session(
     start_time,
     end_time,
     liquidity_score: float,
-    is_overlap: str
+    is_overlap: str,
 ):
     session = MarketSession(
         session_name=session_name,
         start_time=start_time,
         end_time=end_time,
         liquidity_score=liquidity_score,
-        is_overlap=is_overlap
+        is_overlap=is_overlap,
     )
 
     db.add(session)
@@ -28,26 +26,12 @@ def create_market_session(
     return session
 
 
-def get_market_sessions(
-    db: Session
-):
-    return (
-        db.query(
-            MarketSession
-        ).all()
-    )
+def get_market_sessions(db: Session):
+    return db.query(MarketSession).all()
 
-def get_market_session_by_id(
-    db: Session,
-    session_id: int
-):
-    return (
-        db.query(MarketSession)
-        .filter(
-            MarketSession.id == session_id
-        )
-        .first()
-    )
+
+def get_market_session_by_id(db: Session, session_id: int):
+    return db.query(MarketSession).filter(MarketSession.id == session_id).first()
 
 
 def update_market_session(
@@ -57,15 +41,9 @@ def update_market_session(
     start_time,
     end_time,
     liquidity_score: float,
-    is_overlap: str
+    is_overlap: str,
 ):
-    session = (
-        db.query(MarketSession)
-        .filter(
-            MarketSession.id == session_id
-        )
-        .first()
-    )
+    session = db.query(MarketSession).filter(MarketSession.id == session_id).first()
 
     if not session:
         return None
@@ -82,17 +60,8 @@ def update_market_session(
     return session
 
 
-def delete_market_session(
-    db: Session,
-    session_id: int
-):
-    session = (
-        db.query(MarketSession)
-        .filter(
-            MarketSession.id == session_id
-        )
-        .first()
-    )
+def delete_market_session(db: Session, session_id: int):
+    session = db.query(MarketSession).filter(MarketSession.id == session_id).first()
 
     if not session:
         return None

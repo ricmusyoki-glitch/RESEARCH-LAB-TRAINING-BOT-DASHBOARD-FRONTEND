@@ -1,10 +1,9 @@
+from datetime import datetime
+
 from sqlalchemy.orm import Session
 
-from app.models.performance_history import (
-    PerformanceHistory
-)
+from app.models.performance_history import PerformanceHistory
 
-from datetime import datetime
 
 def create_performance_history(
     db: Session,
@@ -13,7 +12,7 @@ def create_performance_history(
     profit_factor: float,
     max_drawdown: float,
     rank_position: int,
-    recorded_at: datetime
+    recorded_at: datetime,
 ):
     history = PerformanceHistory(
         strategy_name=strategy_name,
@@ -21,7 +20,7 @@ def create_performance_history(
         profit_factor=profit_factor,
         max_drawdown=max_drawdown,
         rank_position=rank_position,
-        recorded_at=recorded_at
+        recorded_at=recorded_at,
     )
 
     db.add(history)
@@ -31,25 +30,13 @@ def create_performance_history(
     return history
 
 
-def get_performance_history(
-    db: Session
-):
-    return (
-        db.query(
-            PerformanceHistory
-        ).all()
-    )
+def get_performance_history(db: Session):
+    return db.query(PerformanceHistory).all()
 
-def get_performance_history_by_id(
-    db: Session,
-    history_id: int
-):
+
+def get_performance_history_by_id(db: Session, history_id: int):
     return (
-        db.query(PerformanceHistory)
-        .filter(
-            PerformanceHistory.id == history_id
-        )
-        .first()
+        db.query(PerformanceHistory).filter(PerformanceHistory.id == history_id).first()
     )
 
 
@@ -61,14 +48,10 @@ def update_performance_history(
     profit_factor: float,
     max_drawdown: float,
     rank_position: int,
-    recorded_at: datetime
+    recorded_at: datetime,
 ):
     history = (
-        db.query(PerformanceHistory)
-        .filter(
-            PerformanceHistory.id == history_id
-        )
-        .first()
+        db.query(PerformanceHistory).filter(PerformanceHistory.id == history_id).first()
     )
 
     if not history:
@@ -87,16 +70,9 @@ def update_performance_history(
     return history
 
 
-def delete_performance_history(
-    db: Session,
-    history_id: int
-):
+def delete_performance_history(db: Session, history_id: int):
     history = (
-        db.query(PerformanceHistory)
-        .filter(
-            PerformanceHistory.id == history_id
-        )
-        .first()
+        db.query(PerformanceHistory).filter(PerformanceHistory.id == history_id).first()
     )
 
     if not history:

@@ -3,20 +3,13 @@ from sqlalchemy.orm import sessionmaker
 
 from app.core.config import settings
 
+engine = create_engine(settings.DATABASE_URL, echo=True)
 
-engine = create_engine(
-    settings.DATABASE_URL,
-    echo=True
-)
-
-SessionLocal = sessionmaker(
-    autocommit=False,
-    autoflush=False,
-    bind=engine
-) 
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 from app.database.base import Base
-from app.models.strategy import Strategy
+import app.models 
+
 
 def create_tables():
-    Base.metadata.create_all(bind=engine) 
+    Base.metadata.create_all(bind=engine)

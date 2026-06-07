@@ -14,7 +14,7 @@ def create_paper_trade(
     lot_size: float,
     status: str,
     pnl: float,
-    opened_at
+    opened_at,
 ):
     paper_trade = PaperTrade(
         symbol=symbol,
@@ -26,7 +26,7 @@ def create_paper_trade(
         lot_size=lot_size,
         status=status,
         pnl=pnl,
-        opened_at=opened_at
+        opened_at=opened_at,
     )
 
     db.add(paper_trade)
@@ -39,15 +39,9 @@ def create_paper_trade(
 def get_paper_trades(db: Session):
     return db.query(PaperTrade).all()
 
-def get_paper_trade_by_id(
-    db: Session,
-    paper_trade_id: int
-):
-    return (
-        db.query(PaperTrade)
-        .filter(PaperTrade.id == paper_trade_id)
-        .first()
-    )
+
+def get_paper_trade_by_id(db: Session, paper_trade_id: int):
+    return db.query(PaperTrade).filter(PaperTrade.id == paper_trade_id).first()
 
 
 def update_paper_trade(
@@ -62,13 +56,9 @@ def update_paper_trade(
     lot_size: float,
     status: str,
     pnl: float,
-    opened_at
+    opened_at,
 ):
-    paper_trade = (
-        db.query(PaperTrade)
-        .filter(PaperTrade.id == paper_trade_id)
-        .first()
-    )
+    paper_trade = db.query(PaperTrade).filter(PaperTrade.id == paper_trade_id).first()
 
     if not paper_trade:
         return None
@@ -90,15 +80,8 @@ def update_paper_trade(
     return paper_trade
 
 
-def delete_paper_trade(
-    db: Session,
-    paper_trade_id: int
-):
-    paper_trade = (
-        db.query(PaperTrade)
-        .filter(PaperTrade.id == paper_trade_id)
-        .first()
-    )
+def delete_paper_trade(db: Session, paper_trade_id: int):
+    paper_trade = db.query(PaperTrade).filter(PaperTrade.id == paper_trade_id).first()
 
     if not paper_trade:
         return None

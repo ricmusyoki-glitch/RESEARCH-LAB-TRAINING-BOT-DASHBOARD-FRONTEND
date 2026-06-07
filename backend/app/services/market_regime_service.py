@@ -4,19 +4,14 @@ from app.models.market_regime import MarketRegime
 
 
 def create_market_regime(
-    db: Session,
-    symbol: str,
-    timeframe: str,
-    timestamp,
-    regime: str,
-    confidence: int
+    db: Session, symbol: str, timeframe: str, timestamp, regime: str, confidence: int
 ):
     market_regime = MarketRegime(
         symbol=symbol,
         timeframe=timeframe,
         timestamp=timestamp,
         regime=regime,
-        confidence=confidence
+        confidence=confidence,
     )
 
     db.add(market_regime)
@@ -29,15 +24,9 @@ def create_market_regime(
 def get_market_regimes(db: Session):
     return db.query(MarketRegime).all()
 
-def get_market_regime_by_id(
-    db: Session,
-    market_regime_id: int
-):
-    return (
-        db.query(MarketRegime)
-        .filter(MarketRegime.id == market_regime_id)
-        .first()
-    )
+
+def get_market_regime_by_id(db: Session, market_regime_id: int):
+    return db.query(MarketRegime).filter(MarketRegime.id == market_regime_id).first()
 
 
 def update_market_regime(
@@ -47,12 +36,10 @@ def update_market_regime(
     timeframe: str,
     timestamp,
     regime: str,
-    confidence: int
+    confidence: int,
 ):
     market_regime = (
-        db.query(MarketRegime)
-        .filter(MarketRegime.id == market_regime_id)
-        .first()
+        db.query(MarketRegime).filter(MarketRegime.id == market_regime_id).first()
     )
 
     if not market_regime:
@@ -70,14 +57,9 @@ def update_market_regime(
     return market_regime
 
 
-def delete_market_regime(
-    db: Session,
-    market_regime_id: int
-):
+def delete_market_regime(db: Session, market_regime_id: int):
     market_regime = (
-        db.query(MarketRegime)
-        .filter(MarketRegime.id == market_regime_id)
-        .first()
+        db.query(MarketRegime).filter(MarketRegime.id == market_regime_id).first()
     )
 
     if not market_regime:

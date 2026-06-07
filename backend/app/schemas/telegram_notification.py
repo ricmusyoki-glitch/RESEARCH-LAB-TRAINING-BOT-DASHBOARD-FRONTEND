@@ -13,9 +13,7 @@ class TelegramNotificationCreate(BaseModel):
     sent_at: datetime
 
 
-class TelegramNotificationResponse(
-    TelegramNotificationCreate
-):
+class TelegramNotificationResponse(TelegramNotificationCreate):
     id: int
 
     class Config:

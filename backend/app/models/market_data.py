@@ -1,10 +1,4 @@
-from sqlalchemy import (
-    Column,
-    Integer,
-    String,
-    Float,
-    DateTime
-)
+from sqlalchemy import Column, DateTime, Float, Integer, String
 
 from app.database.base import Base
 
@@ -30,4 +24,4 @@ class MarketData(Base):
 
     volume = Column(Float, nullable=False)
 
-    spread = Column(Float, nullable=False) 
+    spread = Column(Float, nullable=False)

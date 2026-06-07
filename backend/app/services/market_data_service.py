@@ -13,7 +13,7 @@ def create_market_data(
     low: float,
     close: float,
     volume: float,
-    spread: float
+    spread: float,
 ):
     market_data = MarketData(
         symbol=symbol,
@@ -24,7 +24,7 @@ def create_market_data(
         low=low,
         close=close,
         volume=volume,
-        spread=spread
+        spread=spread,
     )
 
     db.add(market_data)
@@ -35,17 +35,11 @@ def create_market_data(
 
 
 def get_market_data(db: Session):
-    return db.query(MarketData).all() 
+    return db.query(MarketData).all()
 
-def get_market_data_by_id(
-    db: Session,
-    market_data_id: int
-):
-    return (
-        db.query(MarketData)
-        .filter(MarketData.id == market_data_id)
-        .first()
-    )
+
+def get_market_data_by_id(db: Session, market_data_id: int):
+    return db.query(MarketData).filter(MarketData.id == market_data_id).first()
 
 
 def update_market_data(
@@ -59,13 +53,9 @@ def update_market_data(
     low: float,
     close: float,
     volume: float,
-    spread: float
+    spread: float,
 ):
-    market_data = (
-        db.query(MarketData)
-        .filter(MarketData.id == market_data_id)
-        .first()
-    )
+    market_data = db.query(MarketData).filter(MarketData.id == market_data_id).first()
 
     if not market_data:
         return None
@@ -86,15 +76,8 @@ def update_market_data(
     return market_data
 
 
-def delete_market_data(
-    db: Session,
-    market_data_id: int
-):
-    market_data = (
-        db.query(MarketData)
-        .filter(MarketData.id == market_data_id)
-        .first()
-    )
+def delete_market_data(db: Session, market_data_id: int):
+    market_data = db.query(MarketData).filter(MarketData.id == market_data_id).first()
 
     if not market_data:
         return None

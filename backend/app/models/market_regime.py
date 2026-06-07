@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy import Column, DateTime, Integer, String
 
 from app.database.base import Base
 
@@ -16,4 +16,4 @@ class MarketRegime(Base):
 
     regime = Column(String, nullable=False)
 
-    confidence = Column(Integer, nullable=False) 
+    confidence = Column(Integer, nullable=False)

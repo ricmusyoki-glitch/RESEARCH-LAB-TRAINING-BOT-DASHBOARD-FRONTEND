@@ -15,9 +15,7 @@ class MarketSessionCreate(BaseModel):
     is_overlap: str
 
 
-class MarketSessionResponse(
-    MarketSessionCreate
-):
+class MarketSessionResponse(MarketSessionCreate):
     id: int
 
     class Config:

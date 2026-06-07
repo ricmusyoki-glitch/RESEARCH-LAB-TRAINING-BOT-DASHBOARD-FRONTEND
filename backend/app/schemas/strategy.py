@@ -18,6 +18,7 @@ class StrategyResponse(BaseModel):
     class Config:
         from_attributes = True
 
+
 class StrategyUpdate(BaseModel):
     name: str
     category: str

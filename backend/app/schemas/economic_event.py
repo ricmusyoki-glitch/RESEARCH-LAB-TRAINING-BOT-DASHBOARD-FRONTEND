@@ -15,9 +15,7 @@ class EconomicEventCreate(BaseModel):
     description: str | None = None
 
 
-class EconomicEventResponse(
-    EconomicEventCreate
-):
+class EconomicEventResponse(EconomicEventCreate):
     id: int
 
     class Config:

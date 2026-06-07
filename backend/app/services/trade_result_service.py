@@ -13,7 +13,7 @@ def create_trade_result(
     max_drawdown: float,
     result: str,
     opened_at,
-    closed_at
+    closed_at,
 ):
     trade_result = TradeResult(
         symbol=symbol,
@@ -24,7 +24,7 @@ def create_trade_result(
         max_drawdown=max_drawdown,
         result=result,
         opened_at=opened_at,
-        closed_at=closed_at
+        closed_at=closed_at,
     )
 
     db.add(trade_result)
@@ -37,15 +37,9 @@ def create_trade_result(
 def get_trade_results(db: Session):
     return db.query(TradeResult).all()
 
-def get_trade_result_by_id(
-    db: Session,
-    trade_result_id: int
-):
-    return (
-        db.query(TradeResult)
-        .filter(TradeResult.id == trade_result_id)
-        .first()
-    )
+
+def get_trade_result_by_id(db: Session, trade_result_id: int):
+    return db.query(TradeResult).filter(TradeResult.id == trade_result_id).first()
 
 
 def update_trade_result(
@@ -59,12 +53,10 @@ def update_trade_result(
     max_drawdown: float,
     result: str,
     opened_at,
-    closed_at
+    closed_at,
 ):
     trade_result = (
-        db.query(TradeResult)
-        .filter(TradeResult.id == trade_result_id)
-        .first()
+        db.query(TradeResult).filter(TradeResult.id == trade_result_id).first()
     )
 
     if not trade_result:
@@ -86,14 +78,9 @@ def update_trade_result(
     return trade_result
 
 
-def delete_trade_result(
-    db: Session,
-    trade_result_id: int
-):
+def delete_trade_result(db: Session, trade_result_id: int):
     trade_result = (
-        db.query(TradeResult)
-        .filter(TradeResult.id == trade_result_id)
-        .first()
+        db.query(TradeResult).filter(TradeResult.id == trade_result_id).first()
     )
 
     if not trade_result:

@@ -1,22 +1,16 @@
 from sqlalchemy.orm import Session
 
-from app.models.telegram_notification import (
-    TelegramNotification
-)
+from app.models.telegram_notification import TelegramNotification
 
 
 def create_telegram_notification(
-    db: Session,
-    notification_type: str,
-    message: str,
-    status: str,
-    sent_at
+    db: Session, notification_type: str, message: str, status: str, sent_at
 ):
     notification = TelegramNotification(
         notification_type=notification_type,
         message=message,
         status=status,
-        sent_at=sent_at
+        sent_at=sent_at,
     )
 
     db.add(notification)
@@ -26,24 +20,14 @@ def create_telegram_notification(
     return notification
 
 
-def get_telegram_notifications(
-    db: Session
-):
-    return (
-        db.query(
-            TelegramNotification
-        ).all()
-    )
+def get_telegram_notifications(db: Session):
+    return db.query(TelegramNotification).all()
 
-def get_telegram_notification_by_id(
-    db: Session,
-    notification_id: int
-):
+
+def get_telegram_notification_by_id(db: Session, notification_id: int):
     return (
         db.query(TelegramNotification)
-        .filter(
-            TelegramNotification.id == notification_id
-        )
+        .filter(TelegramNotification.id == notification_id)
         .first()
     )
 
@@ -54,13 +38,11 @@ def update_telegram_notification(
     notification_type: str,
     message: str,
     status: str,
-    sent_at
+    sent_at,
 ):
     notification = (
         db.query(TelegramNotification)
-        .filter(
-            TelegramNotification.id == notification_id
-        )
+        .filter(TelegramNotification.id == notification_id)
         .first()
     )
 
@@ -78,15 +60,10 @@ def update_telegram_notification(
     return notification
 
 
-def delete_telegram_notification(
-    db: Session,
-    notification_id: int
-):
+def delete_telegram_notification(db: Session, notification_id: int):
     notification = (
         db.query(TelegramNotification)
-        .filter(
-            TelegramNotification.id == notification_id
-        )
+        .filter(TelegramNotification.id == notification_id)
         .first()
     )
 

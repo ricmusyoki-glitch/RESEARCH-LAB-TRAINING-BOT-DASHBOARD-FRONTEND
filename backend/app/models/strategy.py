@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, Boolean
+from sqlalchemy import Boolean, Column, Float, Integer, String
 
 from app.database.base import Base
 
@@ -16,4 +16,4 @@ class Strategy(Base):
 
     win_rate = Column(Float, default=0.0)
 
-    active = Column(Boolean, default=True) 
+    active = Column(Boolean, default=True)

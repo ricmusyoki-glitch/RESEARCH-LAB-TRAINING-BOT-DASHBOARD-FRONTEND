@@ -1,8 +1,6 @@
 from sqlalchemy.orm import Session
 
-from app.models.strategy_ranking import (
-    StrategyRanking
-)
+from app.models.strategy_ranking import StrategyRanking
 
 
 def create_strategy_ranking(
@@ -14,7 +12,7 @@ def create_strategy_ranking(
     profit_factor: float,
     max_drawdown: float,
     expectancy: float,
-    average_risk_reward: float
+    average_risk_reward: float,
 ):
     ranking = StrategyRanking(
         strategy_name=strategy_name,
@@ -24,7 +22,7 @@ def create_strategy_ranking(
         profit_factor=profit_factor,
         max_drawdown=max_drawdown,
         expectancy=expectancy,
-        average_risk_reward=average_risk_reward
+        average_risk_reward=average_risk_reward,
     )
 
     db.add(ranking)
@@ -34,26 +32,12 @@ def create_strategy_ranking(
     return ranking
 
 
-def get_strategy_rankings(
-    db: Session
-):
-    return (
-        db.query(
-            StrategyRanking
-        ).all()
-    )
+def get_strategy_rankings(db: Session):
+    return db.query(StrategyRanking).all()
 
-def get_strategy_ranking_by_id(
-    db: Session,
-    ranking_id: int
-):
-    return (
-        db.query(StrategyRanking)
-        .filter(
-            StrategyRanking.id == ranking_id
-        )
-        .first()
-    )
+
+def get_strategy_ranking_by_id(db: Session, ranking_id: int):
+    return db.query(StrategyRanking).filter(StrategyRanking.id == ranking_id).first()
 
 
 def update_strategy_ranking(
@@ -66,15 +50,9 @@ def update_strategy_ranking(
     profit_factor: float,
     max_drawdown: float,
     expectancy: float,
-    average_risk_reward: float
+    average_risk_reward: float,
 ):
-    ranking = (
-        db.query(StrategyRanking)
-        .filter(
-            StrategyRanking.id == ranking_id
-        )
-        .first()
-    )
+    ranking = db.query(StrategyRanking).filter(StrategyRanking.id == ranking_id).first()
 
     if not ranking:
         return None
@@ -94,17 +72,8 @@ def update_strategy_ranking(
     return ranking
 
 
-def delete_strategy_ranking(
-    db: Session,
-    ranking_id: int
-):
-    ranking = (
-        db.query(StrategyRanking)
-        .filter(
-            StrategyRanking.id == ranking_id
-        )
-        .first()
-    )
+def delete_strategy_ranking(db: Session, ranking_id: int):
+    ranking = db.query(StrategyRanking).filter(StrategyRanking.id == ranking_id).first()
 
     if not ranking:
         return None

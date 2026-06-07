@@ -15,10 +15,8 @@ class PredictionCreate(BaseModel):
     predicted_at: datetime
 
 
-class PredictionResponse(
-    PredictionCreate
-):
+class PredictionResponse(PredictionCreate):
     id: int
 
     class Config:
-        from_attributes = True 
+        from_attributes = True

@@ -13,7 +13,7 @@ def create_signal(
     stop_loss: float,
     take_profit: float,
     confidence: int,
-    status: str
+    status: str,
 ):
     signal = Signal(
         symbol=symbol,
@@ -24,7 +24,7 @@ def create_signal(
         stop_loss=stop_loss,
         take_profit=take_profit,
         confidence=confidence,
-        status=status
+        status=status,
     )
 
     db.add(signal)
@@ -37,15 +37,9 @@ def create_signal(
 def get_signals(db: Session):
     return db.query(Signal).all()
 
-def get_signal_by_id(
-    db: Session,
-    signal_id: int
-):
-    return (
-        db.query(Signal)
-        .filter(Signal.id == signal_id)
-        .first()
-    )
+
+def get_signal_by_id(db: Session, signal_id: int):
+    return db.query(Signal).filter(Signal.id == signal_id).first()
 
 
 def update_signal(
@@ -59,13 +53,9 @@ def update_signal(
     stop_loss: float,
     take_profit: float,
     confidence: int,
-    status: str
+    status: str,
 ):
-    signal = (
-        db.query(Signal)
-        .filter(Signal.id == signal_id)
-        .first()
-    )
+    signal = db.query(Signal).filter(Signal.id == signal_id).first()
 
     if not signal:
         return None
@@ -86,15 +76,8 @@ def update_signal(
     return signal
 
 
-def delete_signal(
-    db: Session,
-    signal_id: int
-):
-    signal = (
-        db.query(Signal)
-        .filter(Signal.id == signal_id)
-        .first()
-    )
+def delete_signal(db: Session, signal_id: int):
+    signal = db.query(Signal).filter(Signal.id == signal_id).first()
 
     if not signal:
         return None

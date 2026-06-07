@@ -19,9 +19,7 @@ class StrategyRankingCreate(BaseModel):
     average_risk_reward: float
 
 
-class StrategyRankingResponse(
-    StrategyRankingCreate
-):
+class StrategyRankingResponse(StrategyRankingCreate):
     id: int
 
     class Config:

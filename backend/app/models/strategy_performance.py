@@ -1,9 +1,4 @@
-from sqlalchemy import (
-    Column,
-    Integer,
-    String,
-    Float
-)
+from sqlalchemy import Column, Float, Integer, String
 
 from app.database.base import Base
 
@@ -37,4 +32,4 @@ class StrategyPerformance(Base):
 
     average_risk_reward = Column(Float, default=0.0)
 
-    rank_score = Column(Float, default=0.0) 
+    rank_score = Column(Float, default=0.0)

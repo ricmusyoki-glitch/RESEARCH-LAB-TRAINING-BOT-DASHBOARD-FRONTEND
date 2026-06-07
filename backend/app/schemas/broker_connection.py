@@ -15,9 +15,7 @@ class BrokerConnectionCreate(BaseModel):
     last_sync: datetime
 
 
-class BrokerConnectionResponse(
-    BrokerConnectionCreate
-):
+class BrokerConnectionResponse(BrokerConnectionCreate):
     id: int
 
     class Config:

@@ -9,14 +9,14 @@ def create_prediction(
     timeframe: str,
     prediction: str,
     confidence: float,
-    predicted_at
+    predicted_at,
 ):
     prediction_record = Prediction(
         symbol=symbol,
         timeframe=timeframe,
         prediction=prediction,
         confidence=confidence,
-        predicted_at=predicted_at
+        predicted_at=predicted_at,
     )
 
     db.add(prediction_record)
@@ -26,26 +26,12 @@ def create_prediction(
     return prediction_record
 
 
-def get_predictions(
-    db: Session
-):
-    return (
-        db.query(
-            Prediction
-        ).all()
-    )
+def get_predictions(db: Session):
+    return db.query(Prediction).all()
 
-def get_prediction_by_id(
-    db: Session,
-    prediction_id: int
-):
-    return (
-        db.query(Prediction)
-        .filter(
-            Prediction.id == prediction_id
-        )
-        .first()
-    )
+
+def get_prediction_by_id(db: Session, prediction_id: int):
+    return db.query(Prediction).filter(Prediction.id == prediction_id).first()
 
 
 def update_prediction(
@@ -55,14 +41,10 @@ def update_prediction(
     timeframe: str,
     prediction: str,
     confidence: float,
-    predicted_at
+    predicted_at,
 ):
     prediction_record = (
-        db.query(Prediction)
-        .filter(
-            Prediction.id == prediction_id
-        )
-        .first()
+        db.query(Prediction).filter(Prediction.id == prediction_id).first()
     )
 
     if not prediction_record:
@@ -80,16 +62,9 @@ def update_prediction(
     return prediction_record
 
 
-def delete_prediction(
-    db: Session,
-    prediction_id: int
-):
+def delete_prediction(db: Session, prediction_id: int):
     prediction_record = (
-        db.query(Prediction)
-        .filter(
-            Prediction.id == prediction_id
-        )
-        .first()
+        db.query(Prediction).filter(Prediction.id == prediction_id).first()
     )
 
     if not prediction_record:
