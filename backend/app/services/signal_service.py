@@ -14,6 +14,7 @@ def create_signal(
     take_profit: float,
     confidence: int,
     status: str,
+    analysis_summary: str | None = None,
 ):
     signal = Signal(
         symbol=symbol,
@@ -25,6 +26,7 @@ def create_signal(
         take_profit=take_profit,
         confidence=confidence,
         status=status,
+        analysis_summary=analysis_summary,
     )
 
     db.add(signal)
@@ -54,6 +56,7 @@ def update_signal(
     take_profit: float,
     confidence: int,
     status: str,
+    analysis_summary: str | None = None,
 ):
     signal = db.query(Signal).filter(Signal.id == signal_id).first()
 
@@ -69,6 +72,7 @@ def update_signal(
     signal.take_profit = take_profit
     signal.confidence = confidence
     signal.status = status
+    signal.analysis_summary = analysis_summary
 
     db.commit()
     db.refresh(signal)

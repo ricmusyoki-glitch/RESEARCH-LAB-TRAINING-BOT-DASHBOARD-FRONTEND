@@ -22,6 +22,8 @@ class SignalCreate(BaseModel):
 
     status: str
 
+    analysis_summary: str | None = None
+
 
 class SignalResponse(SignalCreate):
     id: int

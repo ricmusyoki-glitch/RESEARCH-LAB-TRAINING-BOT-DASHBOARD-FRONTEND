@@ -1,4 +1,4 @@
-from sqlalchemy import Column, DateTime, Float, Integer, String
+from sqlalchemy import Column, DateTime, Float, Integer, String, Text
 
 from app.database.base import Base
 
@@ -25,3 +25,5 @@ class Signal(Base):
     confidence = Column(Integer, nullable=False)
 
     status = Column(String, nullable=False)
+
+    analysis_summary = Column(Text, nullable=True)

@@ -23,6 +23,7 @@ def create_signal_endpoint(signal: SignalCreate, db: Session = Depends(get_db)):
         take_profit=signal.take_profit,
         confidence=signal.confidence,
         status=signal.status,
+        analysis_summary=signal.analysis_summary,
     )
 
 
@@ -57,6 +58,7 @@ def update_signal_endpoint(
         take_profit=signal.take_profit,
         confidence=signal.confidence,
         status=signal.status,
+        analysis_summary=signal.analysis_summary,
     )
 
     if not updated_signal:
