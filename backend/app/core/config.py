@@ -113,6 +113,8 @@ class IndicatorConfig:
 
     BOLLINGER_STD: int = 2
 
+    DONCHIAN_PERIOD: int = 20
+
 
 # ==========================================================
 # Structure Configuration
