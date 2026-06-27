@@ -267,3 +267,18 @@ class MachineLearningConfig:
     ENABLE_MODEL_VERSIONING: bool = True
 
     ENABLE_FEATURE_SCALING: bool = True 
+
+# ==========================================================
+# Strategy Configuration
+# ==========================================================
+
+
+@dataclass(frozen=True)
+class StrategyConfig:
+    """
+    Strategy settings.
+    """
+
+    TOP_STRATEGIES: int = 2
+
+    MIN_STRATEGY_SCORE: float = 60.0

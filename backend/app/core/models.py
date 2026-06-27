@@ -223,3 +223,43 @@ class MarketAnalysisResult(EngineResponse):
 
     trade_ready: bool
 
+
+# ==========================================================
+# Strategy Models
+# ==========================================================
+
+
+class StrategyScore(BaseModel):
+    """
+    Strategy evaluation score.
+    """
+
+    strategy_name: str
+
+    score: float = Field(
+        ge=0,
+        le=100,
+    )
+
+    reasons: list[str] = Field(
+        default_factory=list
+    )
+
+
+class StrategyRankingResult(
+    EngineResponse
+):
+    """
+    Ranked strategies.
+    """
+
+    rankings: list[StrategyScore] = Field(
+        default_factory=list
+    )
+
+    top_strategies: list[
+        StrategyScore
+    ] = Field(
+        default_factory=list
+    )
+
