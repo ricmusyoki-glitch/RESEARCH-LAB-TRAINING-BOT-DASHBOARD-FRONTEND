@@ -132,6 +132,51 @@ class StructureConfig:
     CHOCH_CONFIRMATION_CANDLES: int = 2
 
 
+    # ==========================================================
+# Regime Detection Configuration
+# ==========================================================
+
+
+@dataclass(frozen=True)
+class RegimeConfig:
+    """
+    Market regime detection settings.
+
+    These settings control how the system classifies
+    market conditions into:
+
+    - TRENDING
+    - RANGING
+    - VOLATILE
+    - CHOPPY
+
+    The Regime Detection Engine uses indicators
+    (EMA, ATR) and structure information
+    (BOS, CHOCH) to determine the current
+    market environment.
+    """
+
+    # ----------------------------
+    # Trend Detection
+    # ----------------------------
+
+    TREND_EMA_DISTANCE: float = 0.001
+
+    # ----------------------------
+    # Volatility Detection
+    # ----------------------------
+
+    VOLATILITY_THRESHOLD: float = 0.02
+
+    # ----------------------------
+    # Structure Thresholds
+    # ----------------------------
+
+    BOS_THRESHOLD: int = 2
+
+    CHOCH_THRESHOLD: int = 3
+
+
 # ==========================================================
 # Pipeline Configuration
 # ==========================================================
@@ -202,4 +247,4 @@ class MachineLearningConfig:
 
     ENABLE_MODEL_VERSIONING: bool = True
 
-    ENABLE_FEATURE_SCALING: bool = True
+    ENABLE_FEATURE_SCALING: bool = True 
