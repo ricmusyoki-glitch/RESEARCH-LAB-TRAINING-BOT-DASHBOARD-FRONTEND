@@ -83,6 +83,18 @@ class IndicatorEngine(BaseEngine):
         ).average_true_range()
 
         # =========================
+        # ATR Expansion
+        # =========================
+
+        df["atr_change"] = (
+        df["atr"].pct_change()
+        )
+
+        df["atr_expanding"] = (
+        df["atr_change"] > 0
+        )
+
+        # =========================
         # ADX
         # =========================
 
