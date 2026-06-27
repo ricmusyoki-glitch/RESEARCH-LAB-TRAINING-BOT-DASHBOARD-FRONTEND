@@ -1,5 +1,5 @@
 """
-Tests for DXYAnalysisEngine.
+Tests for PairAnalysisEngine.
 
 Author: Rick Research Lab
 """
@@ -9,8 +9,8 @@ from datetime import datetime, timedelta
 import pandas as pd
 import pytest
 
-from app.market_analysis.dxy_analysis import (
-    DXYAnalysisEngine,
+from app.market_analysis.pair_analysis import (
+    PairAnalysisEngine,
 )
 
 
@@ -20,8 +20,8 @@ from app.market_analysis.dxy_analysis import (
 
 
 @pytest.fixture
-def dxy_engine() -> DXYAnalysisEngine:
-    return DXYAnalysisEngine()
+def pair_engine() -> PairAnalysisEngine:
+    return PairAnalysisEngine()
 
 
 @pytest.fixture
@@ -84,10 +84,12 @@ def bearish_dataframe() -> pd.DataFrame:
 
 
 def test_analysis_success(
-    dxy_engine: DXYAnalysisEngine,
+    pair_engine: PairAnalysisEngine,
     bullish_dataframe: pd.DataFrame,
 ):
-    result = dxy_engine.analyze(
+    result = pair_engine.analyze(
+        "EURUSD",
+        bullish_dataframe,
         bullish_dataframe,
         bullish_dataframe,
         bullish_dataframe,
@@ -96,24 +98,28 @@ def test_analysis_success(
     assert result.success is True
 
 
-def test_weekly_bias_bullish(
-    dxy_engine: DXYAnalysisEngine,
+def test_pair_name_preserved(
+    pair_engine: PairAnalysisEngine,
     bullish_dataframe: pd.DataFrame,
 ):
-    result = dxy_engine.analyze(
+    result = pair_engine.analyze(
+        "EURUSD",
+        bullish_dataframe,
         bullish_dataframe,
         bullish_dataframe,
         bullish_dataframe,
     )
 
-    assert result.weekly.bias == "BULLISH"
+    assert result.pair == "EURUSD"
 
 
 def test_daily_bias_bullish(
-    dxy_engine: DXYAnalysisEngine,
+    pair_engine: PairAnalysisEngine,
     bullish_dataframe: pd.DataFrame,
 ):
-    result = dxy_engine.analyze(
+    result = pair_engine.analyze(
+        "EURUSD",
+        bullish_dataframe,
         bullish_dataframe,
         bullish_dataframe,
         bullish_dataframe,
@@ -123,10 +129,12 @@ def test_daily_bias_bullish(
 
 
 def test_h4_bias_bullish(
-    dxy_engine: DXYAnalysisEngine,
+    pair_engine: PairAnalysisEngine,
     bullish_dataframe: pd.DataFrame,
 ):
-    result = dxy_engine.analyze(
+    result = pair_engine.analyze(
+        "EURUSD",
+        bullish_dataframe,
         bullish_dataframe,
         bullish_dataframe,
         bullish_dataframe,
@@ -135,42 +143,46 @@ def test_h4_bias_bullish(
     assert result.h4.bias == "BULLISH"
 
 
-def test_dollar_strength_high(
-    dxy_engine: DXYAnalysisEngine,
+def test_overall_bias_bullish(
+    pair_engine: PairAnalysisEngine,
     bullish_dataframe: pd.DataFrame,
 ):
-    result = dxy_engine.analyze(
+    result = pair_engine.analyze(
+        "EURUSD",
+        bullish_dataframe,
         bullish_dataframe,
         bullish_dataframe,
         bullish_dataframe,
     )
 
-    assert result.dollar_strength > 50
+    assert result.overall_bias == "BULLISH"
 
 
 def test_bearish_analysis(
-    dxy_engine: DXYAnalysisEngine,
+    pair_engine: PairAnalysisEngine,
     bearish_dataframe: pd.DataFrame,
 ):
-    result = dxy_engine.analyze(
+    result = pair_engine.analyze(
+        "EURUSD",
+        bearish_dataframe,
         bearish_dataframe,
         bearish_dataframe,
         bearish_dataframe,
     )
 
-    assert result.weekly.bias == "BEARISH"
-
-    assert result.dollar_strength < 50
+    assert result.overall_bias == "BEARISH"
 
 
 def test_confidence_present(
-    dxy_engine: DXYAnalysisEngine,
+    pair_engine: PairAnalysisEngine,
     bullish_dataframe: pd.DataFrame,
 ):
-    result = dxy_engine.analyze(
+    result = pair_engine.analyze(
+        "EURUSD",
+        bullish_dataframe,
         bullish_dataframe,
         bullish_dataframe,
         bullish_dataframe,
     )
 
-    assert result.weekly.confidence > 0 
+    assert result.confidence > 0

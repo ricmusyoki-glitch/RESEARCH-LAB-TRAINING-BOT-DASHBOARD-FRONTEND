@@ -174,8 +174,6 @@ class PairAnalysisResult(EngineResponse):
 
     pair: str
 
-    weekly: TimeframeAnalysis
-
     daily: TimeframeAnalysis
 
     h4: TimeframeAnalysis
@@ -205,3 +203,23 @@ class ConfidenceResult(EngineResponse):
     reasons: list[str] = Field(
         default_factory=list
     )
+
+
+# ==========================================================
+# Market Analysis Pipeline Models
+# ==========================================================
+
+
+class MarketAnalysisResult(EngineResponse):
+    """
+    Final Market Analysis output.
+    """
+
+    dxy_analysis: DXYAnalysisResult
+
+    pair_analysis: PairAnalysisResult
+
+    confidence_analysis: ConfidenceResult
+
+    trade_ready: bool
+
