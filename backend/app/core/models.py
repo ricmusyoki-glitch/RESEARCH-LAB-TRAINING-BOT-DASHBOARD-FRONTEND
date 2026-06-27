@@ -124,3 +124,84 @@ class PipelineResult(EngineResponse):
     completed_steps: list[str] = Field(
         default_factory=list
     )
+
+
+# ==========================================================
+# Market Analysis Models
+# ==========================================================
+
+
+class TimeframeAnalysis(BaseModel):
+    """
+    Analysis result for a single timeframe.
+    """
+
+    timeframe: str
+
+    bias: str
+
+    regime: str
+
+    confidence: float = Field(
+        ge=0,
+        le=100,
+    )
+
+
+class DXYAnalysisResult(EngineResponse):
+    """
+    Complete DXY analysis result.
+    """
+
+    weekly: TimeframeAnalysis
+
+    daily: TimeframeAnalysis
+
+    h4: TimeframeAnalysis
+
+    h1: TimeframeAnalysis
+
+    dollar_strength: float = Field(
+        ge=0,
+        le=100,
+    )
+
+
+class PairAnalysisResult(EngineResponse):
+    """
+    Complete pair analysis result.
+    """
+
+    pair: str
+
+    weekly: TimeframeAnalysis
+
+    daily: TimeframeAnalysis
+
+    h4: TimeframeAnalysis
+
+    h1: TimeframeAnalysis
+
+    m15: TimeframeAnalysis
+
+    overall_bias: str
+
+    confidence: float = Field(
+        ge=0,
+        le=100,
+    )
+
+
+class ConfidenceResult(EngineResponse):
+    """
+    Confidence engine output.
+    """
+
+    confidence: float = Field(
+        ge=0,
+        le=100,
+    )
+
+    reasons: list[str] = Field(
+        default_factory=list
+    )

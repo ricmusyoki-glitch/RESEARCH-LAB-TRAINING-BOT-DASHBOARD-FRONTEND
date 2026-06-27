@@ -227,6 +227,25 @@ class LoggingConfig:
         "%(message)s"
     )
 
+# ==========================================================
+# Market Analysis Configuration
+# ==========================================================
+
+
+@dataclass(frozen=True)
+class MarketAnalysisConfig:
+    """
+    Market Analysis settings.
+    """
+
+    WEEKLY_WEIGHT: float = 0.40
+
+    DAILY_WEIGHT: float = 0.35
+
+    H4_WEIGHT: float = 0.25
+
+    MIN_CONFIDENCE: float = 60.0
+
 
 # ==========================================================
 # Machine Learning Configuration
