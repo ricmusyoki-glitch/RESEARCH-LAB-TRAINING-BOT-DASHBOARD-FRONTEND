@@ -4,6 +4,8 @@ Tests for Execution Engine.
 Author: Rick Research Lab
 """
 
+import pandas as pd
+
 from app.core.models import (
     ConfidenceResult,
     DXYAnalysisResult,
@@ -101,6 +103,42 @@ def create_rankings(
     )
 
 
+def bullish_features() -> pd.DataFrame:
+
+    return pd.DataFrame(
+        {
+            "bullish_bos": [True],
+            "bearish_bos": [False],
+            "bullish_choch": [False],
+            "bearish_choch": [False],
+        }
+    )
+
+
+def bearish_features() -> pd.DataFrame:
+
+    return pd.DataFrame(
+        {
+            "bullish_bos": [False],
+            "bearish_bos": [True],
+            "bullish_choch": [False],
+            "bearish_choch": [False],
+        }
+    )
+
+
+def no_structure_features() -> pd.DataFrame:
+
+    return pd.DataFrame(
+        {
+            "bullish_bos": [False],
+            "bearish_bos": [False],
+            "bullish_choch": [False],
+            "bearish_choch": [False],
+        }
+    )
+
+
 def test_returns_execution_result():
 
     engine = ExecutionEngine()
@@ -109,6 +147,7 @@ def test_returns_execution_result():
         create_signal(),
         create_analysis(),
         create_rankings(),
+        bullish_features(),
     )
 
     assert isinstance(
@@ -117,14 +156,33 @@ def test_returns_execution_result():
     )
 
 
-def test_valid_entry():
+def test_valid_buy_entry():
 
     engine = ExecutionEngine()
 
     result = engine.validate(
-        create_signal(),
+        create_signal(
+            signal="BUY",
+        ),
         create_analysis(),
         create_rankings(),
+        bullish_features(),
+    )
+
+    assert result.entry_valid is True
+
+
+def test_valid_sell_entry():
+
+    engine = ExecutionEngine()
+
+    result = engine.validate(
+        create_signal(
+            signal="SELL",
+        ),
+        create_analysis(),
+        create_rankings(),
+        bearish_features(),
     )
 
     assert result.entry_valid is True
@@ -140,6 +198,7 @@ def test_no_trade_signal_wait():
         ),
         create_analysis(),
         create_rankings(),
+        bullish_features(),
     )
 
     assert result.entry_valid is False
@@ -157,6 +216,7 @@ def test_low_confidence_wait():
             confidence=50,
         ),
         create_rankings(),
+        bullish_features(),
     )
 
     assert result.entry_valid is False
@@ -172,6 +232,39 @@ def test_low_strategy_score_wait():
         create_rankings(
             score=60,
         ),
+        bullish_features(),
+    )
+
+    assert result.entry_valid is False
+
+
+def test_buy_requires_structure():
+
+    engine = ExecutionEngine()
+
+    result = engine.validate(
+        create_signal(
+            signal="BUY",
+        ),
+        create_analysis(),
+        create_rankings(),
+        no_structure_features(),
+    )
+
+    assert result.entry_valid is False
+
+
+def test_sell_requires_structure():
+
+    engine = ExecutionEngine()
+
+    result = engine.validate(
+        create_signal(
+            signal="SELL",
+        ),
+        create_analysis(),
+        create_rankings(),
+        no_structure_features(),
     )
 
     assert result.entry_valid is False
@@ -185,6 +278,7 @@ def test_reasons_present():
         create_signal(),
         create_analysis(),
         create_rankings(),
+        bullish_features(),
     )
 
     assert len(
