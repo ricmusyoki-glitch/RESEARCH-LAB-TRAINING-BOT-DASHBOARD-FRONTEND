@@ -343,3 +343,20 @@ class LiquidityResult(
     metadata: dict = Field(
         default_factory=dict
     )
+
+class FVGResult(
+    EngineResponse
+):
+    """
+    Fair Value Gap result.
+    """
+
+    dataframe: pd.DataFrame
+
+    gaps: list[dict] = Field(
+        default_factory=list
+    )
+
+    metadata: dict = Field(
+        default_factory=dict
+    )
