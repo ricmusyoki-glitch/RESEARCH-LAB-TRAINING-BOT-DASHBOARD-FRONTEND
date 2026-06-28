@@ -47,6 +47,7 @@ class ExecutionEngine(BaseEngine):
 
             result = ExecutionResult(
                 success=True,
+                signal=signal.signal,
                 entry_valid=False,
                 status="WAIT",
                 reasons=reasons,
@@ -74,6 +75,7 @@ class ExecutionEngine(BaseEngine):
 
             result = ExecutionResult(
                 success=True,
+                signal=signal.signal,
                 entry_valid=False,
                 status="WAIT",
                 reasons=reasons,
@@ -99,6 +101,7 @@ class ExecutionEngine(BaseEngine):
 
             result = ExecutionResult(
                 success=True,
+                signal=signal.signal,
                 entry_valid=False,
                 status="WAIT",
                 reasons=reasons,
@@ -127,6 +130,7 @@ class ExecutionEngine(BaseEngine):
 
         result = ExecutionResult(
             success=True,
+            signal=signal.signal,
             entry_valid=True,
             status="ENTRY VALID",
             reasons=reasons,

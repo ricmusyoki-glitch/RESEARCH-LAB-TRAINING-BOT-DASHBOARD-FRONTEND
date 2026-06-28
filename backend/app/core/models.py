@@ -284,6 +284,8 @@ class ExecutionResult(EngineResponse):
     Execution validation result.
     """
 
+    signal: str
+
     entry_valid: bool
 
     status: str
@@ -291,4 +293,3 @@ class ExecutionResult(EngineResponse):
     reasons: list[str] = Field(
         default_factory=list
     )
-
