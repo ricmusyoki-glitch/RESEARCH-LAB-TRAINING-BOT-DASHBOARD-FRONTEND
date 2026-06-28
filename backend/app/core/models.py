@@ -279,3 +279,16 @@ class SignalResult(EngineResponse):
         default_factory=list
     )
 
+class ExecutionResult(EngineResponse):
+    """
+    Execution validation result.
+    """
+
+    entry_valid: bool
+
+    status: str
+
+    reasons: list[str] = Field(
+        default_factory=list
+    )
+
