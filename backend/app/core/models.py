@@ -293,3 +293,19 @@ class ExecutionResult(EngineResponse):
     reasons: list[str] = Field(
         default_factory=list
     )
+
+class PaperTradeResult(EngineResponse):
+    """
+    Paper trade creation result.
+    """
+
+    pair: str
+
+    direction: str
+
+    confidence: float = Field(
+        ge=0,
+        le=100,
+    )
+
+    status: str

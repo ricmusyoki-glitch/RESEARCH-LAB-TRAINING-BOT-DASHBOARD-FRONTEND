@@ -194,3 +194,121 @@ def test_dataframe_size_preserved(
         len(result.dataframe)
         == len(market_dataframe)
     )
+
+# ==========================================================
+# HH / HL / LH / LL Tests
+# ==========================================================
+
+def test_higher_high_column_exists(
+    structure_engine: StructureEngine,
+    market_dataframe: pd.DataFrame,
+):
+    result = structure_engine.detect(
+        market_dataframe
+    )
+
+    assert (
+        "higher_high"
+        in result.dataframe.columns
+    )
+
+
+def test_higher_low_column_exists(
+    structure_engine: StructureEngine,
+    market_dataframe: pd.DataFrame,
+):
+    result = structure_engine.detect(
+        market_dataframe
+    )
+
+    assert (
+        "higher_low"
+        in result.dataframe.columns
+    )
+
+
+def test_lower_high_column_exists(
+    structure_engine: StructureEngine,
+    market_dataframe: pd.DataFrame,
+):
+    result = structure_engine.detect(
+        market_dataframe
+    )
+
+    assert (
+        "lower_high"
+        in result.dataframe.columns
+    )
+
+
+def test_lower_low_column_exists(
+    structure_engine: StructureEngine,
+    market_dataframe: pd.DataFrame,
+):
+    result = structure_engine.detect(
+        market_dataframe
+    )
+
+    assert (
+        "lower_low"
+        in result.dataframe.columns
+    )
+
+# ==========================================================
+# BOS / CHOCH Regression Tests
+# ==========================================================
+
+def test_bullish_bos_column_exists(
+    structure_engine: StructureEngine,
+    market_dataframe: pd.DataFrame,
+):
+    result = structure_engine.detect(
+        market_dataframe
+    )
+
+    assert (
+        "bullish_bos"
+        in result.dataframe.columns
+    )
+
+
+def test_bearish_bos_column_exists(
+    structure_engine: StructureEngine,
+    market_dataframe: pd.DataFrame,
+):
+    result = structure_engine.detect(
+        market_dataframe
+    )
+
+    assert (
+        "bearish_bos"
+        in result.dataframe.columns
+    )
+
+
+def test_bullish_choch_column_exists(
+    structure_engine: StructureEngine,
+    market_dataframe: pd.DataFrame,
+):
+    result = structure_engine.detect(
+        market_dataframe
+    )
+
+    assert (
+        "bullish_choch"
+        in result.dataframe.columns
+    )
+
+
+def test_bearish_choch_column_exists(
+    structure_engine: StructureEngine,
+    market_dataframe: pd.DataFrame,
+):
+    result = structure_engine.detect(
+        market_dataframe
+    )
+
+    assert (
+        "bearish_choch"
+        in result.dataframe.columns
+    )

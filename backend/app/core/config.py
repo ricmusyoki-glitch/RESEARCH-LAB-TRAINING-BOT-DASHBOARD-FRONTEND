@@ -133,6 +133,7 @@ class StructureConfig:
 
     CHOCH_CONFIRMATION_CANDLES: int = 2
 
+    STRUCTURE_THRESHOLD: float = 0.001
 
     # ==========================================================
 # Regime Detection Configuration

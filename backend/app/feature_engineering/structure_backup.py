@@ -3,6 +3,14 @@ Structure Engine
 
 Detects market structure features.
 
+Version 2:
+- Swing Highs
+- Swing Lows
+- Bullish BOS
+- Bearish BOS
+- Bullish CHOCH
+- Bearish CHOCH
+
 Author: Rick Research Lab
 """
 
@@ -35,27 +43,11 @@ class StructureEngine(BaseEngine):
         lookback = StructureConfig.SWING_LOOKBACK
 
         # ==================================
-        # Structure Columns
+        # Swing Detection
         # ==================================
 
         df["swing_high"] = False
         df["swing_low"] = False
-
-        df["higher_high"] = False
-        df["higher_low"] = False
-
-        df["lower_high"] = False
-        df["lower_low"] = False
-
-        df["bullish_bos"] = False
-        df["bearish_bos"] = False
-
-        df["bullish_choch"] = False
-        df["bearish_choch"] = False
-
-        # ==================================
-        # Swing Detection
-        # ==================================
 
         for i in range(
             lookback,
@@ -101,7 +93,21 @@ class StructureEngine(BaseEngine):
                 ] = True
 
         # ==================================
-        # Swing Lists
+        # BOS Columns
+        # ==================================
+
+        df["bullish_bos"] = False
+        df["bearish_bos"] = False
+
+        # ==================================
+        # CHOCH Columns
+        # ==================================
+
+        df["bullish_choch"] = False
+        df["bearish_choch"] = False
+
+        # ==================================
+        # BOS Detection
         # ==================================
 
         swing_high_indices = (
@@ -113,107 +119,6 @@ class StructureEngine(BaseEngine):
             df.index[df["swing_low"]]
             .tolist()
         )
-
-        # ==================================
-        # HH / LH Detection
-        # ==================================
-
-        threshold = (
-            StructureConfig
-            .STRUCTURE_THRESHOLD
-        )
-
-        for i in range(
-            1,
-            len(swing_high_indices),
-        ):
-
-            previous_idx = (
-                swing_high_indices[i - 1]
-            )
-
-            current_idx = (
-                swing_high_indices[i]
-            )
-
-            previous_high = df.loc[
-                previous_idx,
-                "high",
-            ]
-
-            current_high = df.loc[
-                current_idx,
-                "high",
-            ]
-
-            difference = (
-                current_high
-                - previous_high
-            )
-
-            if difference > threshold:
-
-                df.loc[
-                    current_idx,
-                    "higher_high",
-                ] = True
-
-            elif difference < -threshold:
-
-                df.loc[
-                    current_idx,
-                    "lower_high",
-                ] = True
-
-        # ==================================
-        # HL / LL Detection
-        # ==================================
-
-        for i in range(
-            1,
-            len(swing_low_indices),
-        ):
-
-            previous_idx = (
-                swing_low_indices[i - 1]
-            )
-
-            current_idx = (
-                swing_low_indices[i]
-            )
-
-            previous_low = df.loc[
-                previous_idx,
-                "low",
-            ]
-
-            current_low = df.loc[
-                current_idx,
-                "low",
-            ]
-
-            difference = (
-                current_low
-                - previous_low
-            )
-
-            if difference > threshold:
-
-                df.loc[
-                    current_idx,
-                    "higher_low",
-                ] = True
-
-            elif difference < -threshold:
-
-                df.loc[
-                    current_idx,
-                    "lower_low",
-                ] = True
-
-        # ==================================
-        # BOS Detection
-        # ==================================
 
         for swing_index in swing_high_indices:
 
@@ -304,16 +209,8 @@ class StructureEngine(BaseEngine):
             structures=[
                 "swing_high",
                 "swing_low",
-
-                "higher_high",
-                "higher_low",
-
-                "lower_high",
-                "lower_low",
-
                 "bullish_bos",
                 "bearish_bos",
-
                 "bullish_choch",
                 "bearish_choch",
             ],
