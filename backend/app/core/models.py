@@ -263,3 +263,19 @@ class StrategyRankingResult(
         default_factory=list
     )
 
+class SignalResult(EngineResponse):
+    """
+    Trading signal result.
+    """
+
+    signal: str
+
+    confidence: float = Field(
+        ge=0,
+        le=100,
+    )
+
+    reasons: list[str] = Field(
+        default_factory=list
+    )
+
