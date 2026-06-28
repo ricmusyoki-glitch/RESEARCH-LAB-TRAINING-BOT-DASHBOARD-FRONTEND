@@ -377,3 +377,20 @@ class OrderBlockResult(
     metadata: dict = Field(
         default_factory=dict
     )
+
+class PremiumDiscountResult(
+    EngineResponse
+):
+    """
+    Premium / Discount analysis result.
+    """
+
+    dataframe: pd.DataFrame
+
+    zones: list[dict] = Field(
+        default_factory=list
+    )
+
+    metadata: dict = Field(
+        default_factory=dict
+    )
