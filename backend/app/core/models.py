@@ -360,3 +360,20 @@ class FVGResult(
     metadata: dict = Field(
         default_factory=dict
     )
+
+class OrderBlockResult(
+    EngineResponse
+):
+    """
+    Order block analysis result.
+    """
+
+    dataframe: pd.DataFrame
+
+    order_blocks: list[dict] = Field(
+        default_factory=list
+    )
+
+    metadata: dict = Field(
+        default_factory=dict
+    )
