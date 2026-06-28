@@ -309,3 +309,37 @@ class PaperTradeResult(EngineResponse):
     )
 
     status: str
+
+class SupportResistanceResult(
+    EngineResponse
+):
+    """
+    Support / Resistance result.
+    """
+
+    dataframe: pd.DataFrame
+
+    levels: list[float] = Field(
+        default_factory=list
+    )
+
+    metadata: dict = Field(
+        default_factory=dict
+    )
+
+class LiquidityResult(
+    EngineResponse
+):
+    """
+    Liquidity analysis result.
+    """
+
+    dataframe: pd.DataFrame
+
+    liquidity_zones: list[float] = Field(
+        default_factory=list
+    )
+
+    metadata: dict = Field(
+        default_factory=dict
+    )
