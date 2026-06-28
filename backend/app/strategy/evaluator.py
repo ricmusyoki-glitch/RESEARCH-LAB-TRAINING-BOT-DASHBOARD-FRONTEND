@@ -42,6 +42,7 @@ class StrategyEvaluator:
     def evaluate(
         self,
         analysis: MarketAnalysisResult,
+        features,
     ) -> StrategyRankingResult:
         """
         Evaluate all strategies.
@@ -54,8 +55,9 @@ class StrategyEvaluator:
         ):
 
             score = strategy.evaluate(
-                analysis
-            )
+                analysis,
+                features,
+            ) 
 
             scores.append(
                 score
