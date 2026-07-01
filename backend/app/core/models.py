@@ -394,3 +394,22 @@ class PremiumDiscountResult(
     metadata: dict = Field(
         default_factory=dict
     )
+
+## Data Pipeline subsystems
+
+class DataPipelineResult(
+    EngineResponse
+):
+    """
+    Final output of the data pipeline.
+    """
+
+    dataframe: pd.DataFrame
+
+    symbol: str
+
+    timeframe: str
+
+    rows: int = Field(
+        ge=0
+    )
